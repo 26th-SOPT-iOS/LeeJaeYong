@@ -39,7 +39,7 @@
                                 <rect key="frame" x="107" y="408" width="256" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SOPT_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="diQ-lX-END">
                                 <rect key="frame" x="0.0" y="91" width="414" height="258"/>
