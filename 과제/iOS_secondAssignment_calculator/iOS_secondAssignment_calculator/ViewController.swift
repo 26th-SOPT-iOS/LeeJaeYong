@@ -46,6 +46,7 @@ class ViewController: UIViewController {
         plusButton.layer.cornerRadius = plusButton.bounds.size.width / 2
         clearButton.layer.cornerRadius = clearButton.bounds.size.width / 2
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(oneButton.frame.size.width)
