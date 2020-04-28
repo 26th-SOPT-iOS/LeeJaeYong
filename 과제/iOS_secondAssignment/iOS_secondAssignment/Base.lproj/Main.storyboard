@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ZZ-DF-sSj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xit-hG-ye5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -275,10 +275,10 @@
                         <viewLayoutGuide key="safeArea" id="r2D-sO-PwD"/>
                     </view>
                     <navigationItem key="navigationItem" id="GTr-6v-n4b">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="jiC-Vc-8fG">
-                            <color key="tintColor" red="0.027450980390000001" green="0.23137254900000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="leftBarButtonItem" title="back" landscapeImage="backButton" largeContentSizeImage="backButton" id="e6r-Ti-zT6">
+                            <color key="tintColor" red="0.027450980392156862" green="0.23137254901960785" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="backBtnPressed:" destination="jiW-uo-xJ9" id="rBA-0J-Cot"/>
+                                <action selector="backBtnPressed:" destination="jiW-uo-xJ9" id="cnu-Fo-qPG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -700,6 +700,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="170.5" height="170.5"/>
         <image name="image1" width="148" height="198"/>
         <image name="image2" width="148" height="198"/>
         <image name="image3" width="148" height="198"/>
