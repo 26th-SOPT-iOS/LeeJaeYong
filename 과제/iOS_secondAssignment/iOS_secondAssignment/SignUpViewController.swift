@@ -20,6 +20,7 @@ class SignUpViewController: UIViewController {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.backItem?.title = ""
     }
     override func viewDidLoad() {
         super.viewDidLoad()
