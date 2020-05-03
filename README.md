@@ -11,24 +11,17 @@
 - [1주차 세미나](#1주차-세미나)
 
   - 과제
-    - [Navigation 활용 화면 이동](#Navigation-활용-화면-이동)
-    - [로그인 화면 구현](#로그인-화면-구현)
+    - [Navigation 활용 화면 이동](#✅-Navigation-활용-화면-이동)
+    - [로그인 화면 구현](#✅-로그인-화면-구현)
 
 - [2주차 세미나](#2주차-세미나)
 
   - 과제
-  - [계산기 오토레이아웃 구현](#계산기-오토레이아웃-구현)
-    - [로그인 뷰 및 스크롤 뷰 구현](#로그인-뷰-구현)
-
-- [3주차 세미나](#3주차-세미나)
-
-- [4주차 세미나](#4주차-세미나)
-
-- [5주차 세미나](#5주차-세미나)
-
-- [6주차 세미나](6주차-세미나)
+    - [계산기 오토레이아웃 구현](#✅-계산기-오토레이아웃-구현)
+    - [로그인 뷰 및 스크롤 뷰 구현](#✅-로그인-뷰-구현)
 
   
+
 
 ## 1주차 세미나
 
@@ -177,5 +170,61 @@ scrollView의 imageview가 safeArea를 덮게 하고 싶어 위의 속성을 nev
 
 참고 👉 https://zeddios.tistory.com/809
 
+✅ 도전과제
 
+<img src="https://user-images.githubusercontent.com/56102421/80914828-335d2600-8d89-11ea-96fa-ca5e0aa6c68e.gif" width = "300" />  
 
+completeViewController 파일 안에 추가
+
+```swift
+//MARK: - UIScrollViewDelegate
+extension CompleteViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollViewOffSet = scrollView.contentOffset.y //음수
+        if scrollViewOffSet < 0.0 {
+            heightLayout.constant = soptImageHeightConstant - scrollViewOffSet
+        } else {
+            let newHeight: CGFloat = soptImageHeightConstant - scrollViewOffSet > minHeight ? soptImageHeightConstant - scrollViewOffSet : minHeight
+            heightLayout.constant = newHeight
+        }
+    }
+}
+```
+
+> scrollViewDidScroll: user가 content view를 스크롤했을 때 호출되는 함수
+>
+> contentOffset: content view의 원점(화면 전체를 content view라고 하면 (0, 0))이 스크롤 뷰의 원점에서의 차이 값
+
+그 외 해야할 것들
+
+변수 선언 
+
+```swift
+let minHeight: CGFloat = 140
+var soptImageHeightConstant: CGFloat = 210
+```
+
+ViewDidLoad
+
+```swift
+scrollView.delegate = self
+soptImageHeightConstant = soptImage.frame.height
+```
+
+> frame.height와 frame.size.height는 같다. 하지만 변경하고 싶다면 frame.size.height를 이용해야한다. 
+>
+> 참고 👉 https://zeddios.tistory.com/242
+
+🤯 계속 헤매서 질문하고 다른 레포참고 했던 부분
+
+뷰가 확대되기는 하는데 scrollView랑 같이 내려오는 점
+
+<img src="https://user-images.githubusercontent.com/56102421/80914287-9baa0880-8d85-11ea-8e9d-6e4cf8f2f3a7.gif" width = "40%" /> 
+
+- sopt 이미지가 scrollView안에 위치하면 안된다. 뷰를 짜줄 때 아래와 같이 scrollView와 같은 위치에 있어야 한다. 또한 Sopt Image가 Scroll View보다 위에 위치하면 Scroll View에 가려져서 보여지지 않게 된다. 뷰가 위에서부터 밑으로 쌓인다.
+
+<img src="https://user-images.githubusercontent.com/56102421/80915153-483ab900-8d8b-11ea-8390-f9fa6fcbd3b0.png" width="30%" >  
+
+뷰가 끊임없이 커지고 스크롤을 위로 올려도 작아지지 않는 점
+
+- 스크롤할 때마다 soptImage의 높이를 바꿀 때 새로 지정해준 높이를 불러와서 끊임없이 커지게 된 것이다. soptImage의 초기높이를 상수로 지정을 해놓아야 새 높이를  `초기높이 + offset` 로  바꿀 수 있다. 이 초기높이는 ViewDidLoad함수 밖에 변수를 선언한 후, ViewDidLoad안에서 값을 넣어 줄 수 있다. 
