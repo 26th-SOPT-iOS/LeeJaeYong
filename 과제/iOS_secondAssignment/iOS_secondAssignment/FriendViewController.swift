@@ -145,6 +145,7 @@ extension FriendViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    //MARK: - For slide and delete motion
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete && indexPath.section != 0 {
             friendInfos.remove(at: indexPath.row + 1)
