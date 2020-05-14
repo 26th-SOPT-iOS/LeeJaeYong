@@ -49,6 +49,7 @@ class FriendViewController: UIViewController {
         let friend19 = PersonInfo(imageName: "profile9Img", name: "이솝트", introduce: "")
         friendInfos = [me, friend1, friend2, friend3, friend4, friend5, friend6, friend7, friend8, friend9, friend10, friend11, friend12, friend13, friend14, friend15, friend16, friend17, friend18, friend19]
     }
+    
 }
 
 //MARK: - tableViewDelegate,Datasource
@@ -141,6 +142,16 @@ extension FriendViewController: UITableViewDelegate, UITableViewDataSource {
             friendCell.setFriendInfo(person: friendInfos[indexPath.row + 1])
             
             return friendCell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete && indexPath.section != 0 {
+            friendInfos.remove(at: indexPath.row + 1)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+            tableView.reloadData()
         }
     }
 }

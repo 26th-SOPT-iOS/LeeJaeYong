@@ -251,7 +251,12 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             friendCell.setFriendInfo(person: friendInfos[indexPath.row])
             
             // line
-            let separatorView = UIView.init(frame: CGRect(x: 15, y: 	friendCell.frame.size.height - 1, width: friendCell.frame.size.width - 30, height: 1))
+            let separatorView = UIView.init(frame: CGRect(
+              x: 15, 
+              y: friendCell.frame.size.height - 1, 
+              width: friendCell.frame.size.width - 30, 
+              height: 1
+            ))
             separatorView.backgroundColor = .systemGray2
             friendCell.contentView.addSubview(separatorView)
             
@@ -269,7 +274,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             
             return friendCell
         }
-    }
+}
 ```
 
 > 섹션을 두개로 만들어 하나는 나의 cell, 또 다른 하나는 친구 cell 로 만들어주었다.
@@ -277,6 +282,38 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 > 첫번째 섹션은 cell 뷰가 바뀌므로 if문으로 분기처리하였다.
 >
 > line은 seperator를 지워주었기 때문에 코드로 만들어주었다. headerCell 가장 밑에서 1 위에 두께 1만큼의 선을 만들었다.
+
+```swift
+func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+}
+    
+func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 && indexPath.section == 0 {
+            return 100
+        } else {
+            return 62
+        }
+}
+
+func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        } else {
+            return 35
+        }
+}
+    
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        } else {
+            return friendInfos.count - 1
+        }
+}
+```
+
+> 이 코드도 함께 추가
 
 그 외 수정한 부분
 
@@ -286,8 +323,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
 ```swift
 guard let tabBarVC = self.storyboard?.instantiateViewController(identifier: "TabBarController") as? UITabBarController else { return }
-        tabBarVC.modalPresentationStyle = .fullScreen
-        self.present(tabBarVC, animated: true, completion: nil)
+tabBarVC.modalPresentationStyle = .fullScreen
+self.present(tabBarVC, animated: true, completion: nil)
 ```
 
 > 최상위 TabBarController에 identity를 주어 로그인 또는 회원가입을 하면 저 곳으로 넘어가게 고쳐주었다.
@@ -300,9 +337,9 @@ guard let tabBarVC = self.storyboard?.instantiateViewController(identifier: "Tab
 
 ```swift
 for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) Font names: \(names)")
-        }
+		let names = UIFont.fontNames(forFamilyName: family)
+    print("Family: \(family) Font names: \(names)")
+}
 ```
 
 > 이 코드는 현재 맥에 저장되어 사용할 수 있는 폰트이름들을 출력해준다.
@@ -314,3 +351,42 @@ friendCell.nameLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
 > 위에서 알아낸 폰트 이름을 이용하여 폰트와 사이즈, 볼드체, 이탈리어체 등등 바꿀 수 있다.
 >
 > 참고 👉 https://developer.apple.com/documentation/uikit/text_display_and_fonts/adding_a_custom_font_to_your_app
+
+✅ 도전과제 1: Swipe and Delete
+
+<img src="https://user-images.githubusercontent.com/56102421/81967388-cd5c8280-9655-11ea-9330-00229cb47968.gif" width="30%"> 
+
+다음 코드 추가
+
+```swift
+func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete && indexPath.section != 0 {
+            friendInfos.remove(at: indexPath.row + 1)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+            tableView.reloadData()
+        }
+}
+```
+
+> 이 함수는 UITableViewDataSource 내에 포함된 (row를 추가하거나 제거할 수 있는) optional 함수로 
+>
+> 추가하면 cell을 슬라이드 할 수 있다.
+>
+> UITableViewDelegate 내에 포함된 함수로도 구현할 수 있는지 나중에 확인해보자
+
+> editingStyle: .insert 와 .delete가 있고 뜻 그대로의 의미이다. 
+>
+> remove(): 배열내의 data를 지우는 메소드
+>
+> deleteRows(): row를 지우는 메소드, indexPath array를 통해 어느 row를 지울지 판단하고, animation을 줄 수 있다.
+>
+> beginUpdates(), endUpdates(): 이 두 메소드는 row를 추가하거나 지우는 코드를 안에 넣어준다. 애니메이션이 실행될 떄 도움이 된다고 하는데 차이를 모르겠다. 이 두 메소드 사이에는 reloadData()를 넣어주면 안된다. 그러면 우리가 직접 애니메이션을 구현해주어야 한다.
+>
+> reloadData(): tablView의 row와 section을 다시 불러온다.
+>
+> 유튜브 코드 참고 👉 https://www.youtube.com/watch?v=Wu5l4e5uW4w
+>
+> 애플 문서 참고 👉 https://developer.apple.com/documentation/uikit/uitableviewdatasource/1614871-tableview
+
