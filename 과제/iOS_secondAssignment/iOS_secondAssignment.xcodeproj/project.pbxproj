@@ -13,6 +13,9 @@
 		D442E2932456FF930089082C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D442E2912456FF930089082C /* Main.storyboard */; };
 		D442E2952456FF930089082C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D442E2942456FF930089082C /* Assets.xcassets */; };
 		D442E2982456FF930089082C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D442E2962456FF930089082C /* LaunchScreen.storyboard */; };
+		D44E9493246A723800090556 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44E9492246A723800090556 /* FriendViewController.swift */; };
+		D4A9C406246D87C000638B70 /* PersonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9C405246D87C000638B70 /* PersonInfo.swift */; };
+		D4A9C408246D87D800638B70 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9C407246D87D800638B70 /* FriendTableViewCell.swift */; };
 		D4CA27F32457DC630032F2AA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA27F22457DC630032F2AA /* SignUpViewController.swift */; };
 		D4CA27F52457DC980032F2AA /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA27F42457DC980032F2AA /* CompleteViewController.swift */; };
 		D4E9242D24581C250090A7B5 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E9242C24581C250090A7B5 /* FormTextField.swift */; };
@@ -22,13 +25,16 @@
 		D442E2882456FF930089082C /* iOS_secondAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_secondAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D442E28B2456FF930089082C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D442E28D2456FF930089082C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D442E28F2456FF930089082C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D442E28F2456FF930089082C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = ../SignInViewController.swift; sourceTree = "<group>"; };
 		D442E2922456FF930089082C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D442E2942456FF930089082C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D442E2972456FF930089082C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D442E2992456FF930089082C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4CA27F22457DC630032F2AA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		D4CA27F42457DC980032F2AA /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
+		D44E9492246A723800090556 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendViewController.swift; path = ../FriendViewController.swift; sourceTree = "<group>"; };
+		D4A9C405246D87C000638B70 /* PersonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfo.swift; sourceTree = "<group>"; };
+		D4A9C407246D87D800638B70 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		D4CA27F22457DC630032F2AA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
+		D4CA27F42457DC980032F2AA /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompleteViewController.swift; path = ../CompleteViewController.swift; sourceTree = "<group>"; };
 		D4E9242C24581C250090A7B5 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,16 +70,27 @@
 			children = (
 				D442E28B2456FF930089082C /* AppDelegate.swift */,
 				D442E28D2456FF930089082C /* SceneDelegate.swift */,
-				D442E28F2456FF930089082C /* SignInViewController.swift */,
+				D4D36039246A9B1500D8DDFF /* ViewController */,
 				D442E2912456FF930089082C /* Main.storyboard */,
+				D4A9C405246D87C000638B70 /* PersonInfo.swift */,
+				D4A9C407246D87D800638B70 /* FriendTableViewCell.swift */,
 				D442E2942456FF930089082C /* Assets.xcassets */,
 				D442E2962456FF930089082C /* LaunchScreen.storyboard */,
 				D442E2992456FF930089082C /* Info.plist */,
-				D4CA27F22457DC630032F2AA /* SignUpViewController.swift */,
-				D4CA27F42457DC980032F2AA /* CompleteViewController.swift */,
 				D4E9242C24581C250090A7B5 /* FormTextField.swift */,
 			);
 			path = iOS_secondAssignment;
+			sourceTree = "<group>";
+		};
+		D4D36039246A9B1500D8DDFF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D442E28F2456FF930089082C /* SignInViewController.swift */,
+				D44E9492246A723800090556 /* FriendViewController.swift */,
+				D4CA27F22457DC630032F2AA /* SignUpViewController.swift */,
+				D4CA27F42457DC980032F2AA /* CompleteViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,11 +164,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A9C408246D87D800638B70 /* FriendTableViewCell.swift in Sources */,
 				D442E2902456FF930089082C /* SignInViewController.swift in Sources */,
 				D4E9242D24581C250090A7B5 /* FormTextField.swift in Sources */,
 				D442E28C2456FF930089082C /* AppDelegate.swift in Sources */,
+				D44E9493246A723800090556 /* FriendViewController.swift in Sources */,
 				D4CA27F32457DC630032F2AA /* SignUpViewController.swift in Sources */,
 				D4CA27F52457DC980032F2AA /* CompleteViewController.swift in Sources */,
+				D4A9C406246D87C000638B70 /* PersonInfo.swift in Sources */,
 				D442E28E2456FF930089082C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

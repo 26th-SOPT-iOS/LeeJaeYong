@@ -228,3 +228,93 @@ soptImageHeightConstant = soptImage.frame.height
 뷰가 끊임없이 커지고 스크롤을 위로 올려도 작아지지 않는 점
 
 - 스크롤할 때마다 soptImage의 높이를 바꿀 때 새로 지정해준 높이를 불러와서 끊임없이 커지게 된 것이다. soptImage의 초기높이를 상수로 지정을 해놓아야 새 높이를  `초기높이 + offset` 로  바꿀 수 있다. 이 초기높이는 ViewDidLoad함수 밖에 변수를 선언한 후, ViewDidLoad안에서 값을 넣어 줄 수 있다. 
+
+
+
+## 3주차 세미나
+
+과제
+
+✅ 카카오톡 채팅 뷰 짜기 (테이블 뷰 이용)
+
+<img src="https://user-images.githubusercontent.com/56102421/81951471-26b9b700-9640-11ea-9847-dc07e43acaba.png" width="30%"> <img src="https://user-images.githubusercontent.com/56102421/81951496-2f11f200-9640-11ea-8f48-0f5b14712f1a.png" width="30%" > 
+
+FriendTableViewController 파일 내 UITableViewDataSource 함수 안에 추가
+
+```swift
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let friendCell = friendTableView.dequeueReusableCell(withIdentifier: FriendTableViewCell.identifier, for: indexPath) as? FriendTableViewCell else { return UITableViewCell() }
+        if indexPath.row == 0 && indexPath.section == 0 {
+            
+            friendCell.heightConstraintOfImage.constant = 60
+            friendCell.widthConstraintOfImage.constant = 60
+            friendCell.profileImage.contentMode = .scaleAspectFill
+            friendCell.nameLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
+            friendCell.outStackView.spacing = 13
+            friendCell.topConstraintOfOutStackView.constant = 15
+            friendCell.setFriendInfo(person: friendInfos[indexPath.row])
+            
+            // line
+            let separatorView = UIView.init(frame: CGRect(x: 15, y: 	friendCell.frame.size.height - 1, width: friendCell.frame.size.width - 30, height: 1))
+            separatorView.backgroundColor = .systemGray2
+            friendCell.contentView.addSubview(separatorView)
+            
+            return friendCell
+        } else {
+            
+            friendCell.heightConstraintOfImage.constant = 50
+            friendCell.widthConstraintOfImage.constant = 50
+            friendCell.profileImage.contentMode = .scaleAspectFill
+            friendCell.nameLabel.font = UIFont(name: "HelveticaNeue", size: 17.0)
+            friendCell.outStackView.spacing = 22
+            friendCell.topConstraintOfOutStackView.constant = 6
+            
+            friendCell.setFriendInfo(person: friendInfos[indexPath.row + 1])
+            
+            return friendCell
+        }
+    }
+```
+
+> 섹션을 두개로 만들어 하나는 나의 cell, 또 다른 하나는 친구 cell 로 만들어주었다.
+>
+> 첫번째 섹션은 cell 뷰가 바뀌므로 if문으로 분기처리하였다.
+>
+> line은 seperator를 지워주었기 때문에 코드로 만들어주었다. headerCell 가장 밑에서 1 위에 두께 1만큼의 선을 만들었다.
+
+그 외 수정한 부분
+
+뷰 연결 
+
+<img src="https://user-images.githubusercontent.com/56102421/81952777-d93e4980-9641-11ea-943b-3726a386ac4a.png" width= "50%" >  
+
+```swift
+guard let tabBarVC = self.storyboard?.instantiateViewController(identifier: "TabBarController") as? UITabBarController else { return }
+        tabBarVC.modalPresentationStyle = .fullScreen
+        self.present(tabBarVC, animated: true, completion: nil)
+```
+
+> 최상위 TabBarController에 identity를 주어 로그인 또는 회원가입을 하면 저 곳으로 넘어가게 고쳐주었다.
+
+🤯 정리하고 싶은 거나 다른 코드 참고한 부분!
+
+- 섹션 헤더뷰를 코드로 짜는 법을 몰라 헤매고 있어서 승호형 코드를 가져다 썼어요! 짱이다정말 ㅠㅠ 
+
+- UIFont를 코드로 바꾸는 법
+
+```swift
+for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
+```
+
+> 이 코드는 현재 맥에 저장되어 사용할 수 있는 폰트이름들을 출력해준다.
+
+```swift
+friendCell.nameLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
+```
+
+> 위에서 알아낸 폰트 이름을 이용하여 폰트와 사이즈, 볼드체, 이탈리어체 등등 바꿀 수 있다.
+>
+> 참고 👉 https://developer.apple.com/documentation/uikit/text_display_and_fonts/adding_a_custom_font_to_your_app

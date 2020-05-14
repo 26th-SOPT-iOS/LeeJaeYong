@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ZZ-DF-sSj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lxv-ID-3li">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -168,6 +168,7 @@
                         <outlet property="idTextField" destination="Gs2-34-Gp3" id="94a-b9-vNt"/>
                         <outlet property="passwordTextField" destination="jy7-SL-dpf" id="KC3-cq-jEa"/>
                         <outlet property="signInButton" destination="3Vv-Rg-IGh" id="cd3-mT-XIp"/>
+                        <outlet property="signUpButton" destination="R0B-I0-L8P" id="Ai1-YD-XIG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -286,7 +287,7 @@
             </objects>
             <point key="canvasLocation" x="2997.5999999999999" y="150.67466266866569"/>
         </scene>
-        <!--Complete View Controller-->
+        <!--홈-->
         <scene sceneID="bRZ-gr-kug">
             <objects>
                 <viewController storyboardIdentifier="CompleteViewController" id="1ZZ-DF-sSj" customClass="CompleteViewController" customModule="iOS_secondAssignment" customModuleProvider="target" sceneMemberID="viewController">
@@ -668,6 +669,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UaD-Lc-W5J"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="NCN-y4-lgs"/>
+                    <navigationItem key="navigationItem" id="YY7-sg-4dk"/>
                     <connections>
                         <outlet property="heightLayout" destination="0ez-i1-8Mt" id="4kr-fw-0q2"/>
                         <outlet property="scrollView" destination="LOK-lq-UQc" id="B1B-CN-lyK"/>
@@ -676,7 +679,107 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9r-FY-AYi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3865" y="149"/>
+            <point key="canvasLocation" x="687" y="1647"/>
+        </scene>
+        <!--친구-->
+        <scene sceneID="LT5-AJ-n0v">
+            <objects>
+                <viewController storyboardIdentifier="FriendViewController" id="2qF-Mc-fBY" customClass="FriendViewController" customModule="iOS_secondAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GTW-a7-fmB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="친구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGZ-fu-53o">
+                                <rect key="frame" x="16" y="57" width="38.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="set" translatesAutoresizingMaskIntoConstraints="NO" id="voy-fe-cjW">
+                                <rect key="frame" x="378" y="60" width="20" height="20"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YE3-Tn-1VX">
+                                <rect key="frame" x="0.0" y="83.5" width="414" height="729.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FriendTableViewCell" rowHeight="65" id="lL1-FV-aIg" customClass="FriendTableViewCell" customModule="iOS_secondAssignment" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lL1-FV-aIg" id="Yz4-th-GxN">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="AJR-jc-gGx">
+                                                    <rect key="frame" x="16" y="6" width="371" height="50"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile1Img" translatesAutoresizingMaskIntoConstraints="NO" id="Q0I-9V-TRk">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="1GZ-lu-UxR"/>
+                                                                <constraint firstAttribute="width" constant="50" id="EIJ-wh-vAD"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="7Ir-hb-8GD">
+                                                            <rect key="frame" x="72" y="0.0" width="299" height="50"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이재용" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVG-D8-a9c">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="59.5" height="50"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나무실상묘법연화경 관세음보살보문품" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bI-CF-Reg">
+                                                                    <rect key="frame" x="59.5" y="0.0" width="239.5" height="50"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AJR-jc-gGx" firstAttribute="top" secondItem="Yz4-th-GxN" secondAttribute="top" constant="6" id="A3f-En-h4y"/>
+                                                <constraint firstItem="AJR-jc-gGx" firstAttribute="leading" secondItem="Yz4-th-GxN" secondAttribute="leading" constant="16" id="E3x-bO-aJe"/>
+                                                <constraint firstAttribute="trailing" secondItem="AJR-jc-gGx" secondAttribute="trailing" constant="27" id="pnq-sy-UxM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="heightConstraintOfImage" destination="1GZ-lu-UxR" id="GB3-D5-1dJ"/>
+                                            <outlet property="introduceLabel" destination="4bI-CF-Reg" id="Vif-QG-akf"/>
+                                            <outlet property="nameLabel" destination="eVG-D8-a9c" id="DD1-G6-lxY"/>
+                                            <outlet property="outStackView" destination="AJR-jc-gGx" id="F2C-Jk-6Ij"/>
+                                            <outlet property="profileImage" destination="Q0I-9V-TRk" id="uqg-L8-Dia"/>
+                                            <outlet property="topConstraintOfOutStackView" destination="A3f-En-h4y" id="y3R-Dq-NgC"/>
+                                            <outlet property="widthConstraintOfImage" destination="EIJ-wh-vAD" id="RSt-Q2-yZb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EGZ-fu-53o" firstAttribute="top" secondItem="GTW-a7-fmB" secondAttribute="top" constant="57" id="48g-7G-FpW"/>
+                            <constraint firstAttribute="trailing" secondItem="voy-fe-cjW" secondAttribute="trailing" constant="16" id="7Fe-2x-Q4Y"/>
+                            <constraint firstItem="NT5-5O-cqK" firstAttribute="trailing" secondItem="YE3-Tn-1VX" secondAttribute="trailing" id="M2g-sn-6V2"/>
+                            <constraint firstItem="YE3-Tn-1VX" firstAttribute="leading" secondItem="NT5-5O-cqK" secondAttribute="leading" id="c6h-7u-f9d"/>
+                            <constraint firstItem="voy-fe-cjW" firstAttribute="top" secondItem="GTW-a7-fmB" secondAttribute="top" constant="60" id="fnZ-gi-8wL"/>
+                            <constraint firstItem="EGZ-fu-53o" firstAttribute="leading" secondItem="NT5-5O-cqK" secondAttribute="leading" constant="16" id="o9W-O2-JtS"/>
+                            <constraint firstItem="YE3-Tn-1VX" firstAttribute="top" secondItem="EGZ-fu-53o" secondAttribute="bottom" id="p2r-p3-0oZ"/>
+                            <constraint firstItem="NT5-5O-cqK" firstAttribute="bottom" secondItem="YE3-Tn-1VX" secondAttribute="bottom" id="vFw-Bq-xg5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NT5-5O-cqK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="친구" image="person" catalog="system" id="5Y7-SE-IrO"/>
+                    <navigationItem key="navigationItem" id="N4j-QQ-tQD"/>
+                    <connections>
+                        <outlet property="friendTableView" destination="YE3-Tn-1VX" id="rxl-Zf-BhQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jw8-1j-v5W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673.913043478261" y="1646.6517857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eMY-GA-Toe">
@@ -696,14 +799,38 @@
             </objects>
             <point key="canvasLocation" x="1197.5999999999999" y="149.77511244377811"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Ph4-YW-1R9">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="lxv-ID-3li" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kbl-pb-daf">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="1ZZ-DF-sSj" kind="relationship" relationship="viewControllers" id="yDt-hW-Nln"/>
+                        <segue destination="2qF-Mc-fBY" kind="relationship" relationship="viewControllers" id="fDm-tz-g2F"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qd0-QG-Ysq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1197" y="917"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="house" catalog="system" width="128" height="110"/>
         <image name="image1" width="148" height="198"/>
         <image name="image2" width="148" height="198"/>
         <image name="image3" width="148" height="198"/>
         <image name="image5" width="148" height="198"/>
         <image name="image6" width="148" height="198"/>
         <image name="oursoptBgImg" width="375" height="210"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="profile1Img" width="59" height="60"/>
+        <image name="set" width="20" height="20"/>
         <image name="soptLogo" width="203" height="68"/>
     </resources>
 </document>

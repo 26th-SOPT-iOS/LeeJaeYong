@@ -26,17 +26,17 @@
 		D46247E1246671410036CF34 /* iOS_thirdWeek_seminar_exercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_thirdWeek_seminar_exercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46247E4246671410036CF34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D46247E6246671410036CF34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D46247E8246671410036CF34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D46247E8246671410036CF34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
 		D46247EB246671410036CF34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D46247ED246671420036CF34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D46247F0246671420036CF34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D46247F2246671420036CF34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D46247F824667ABF0036CF34 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
-		D46247FA246686010036CF34 /* SampleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTableViewController.swift; sourceTree = "<group>"; };
+		D46247FA246686010036CF34 /* SampleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SampleTableViewController.swift; path = ../SampleTableViewController.swift; sourceTree = "<group>"; };
 		D46247FC246687B40036CF34 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		D46247FE24668A360036CF34 /* DateInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInformation.swift; sourceTree = "<group>"; };
-		D4624800246695220036CF34 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		D462480224669A530036CF34 /* CollectionViewSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSampleViewController.swift; sourceTree = "<group>"; };
+		D4624800246695220036CF34 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
+		D462480224669A530036CF34 /* CollectionViewSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewSampleViewController.swift; path = ../CollectionViewSampleViewController.swift; sourceTree = "<group>"; };
 		D462480424669E0F0036CF34 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D44F639B2466DEED0003DDC0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D46247E8246671410036CF34 /* ViewController.swift */,
+				D462480224669A530036CF34 /* CollectionViewSampleViewController.swift */,
+				D4624800246695220036CF34 /* DetailViewController.swift */,
+				D46247FA246686010036CF34 /* SampleTableViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		D46247D8246671410036CF34 = {
 			isa = PBXGroup;
 			children = (
@@ -72,14 +83,11 @@
 			children = (
 				D46247E4246671410036CF34 /* AppDelegate.swift */,
 				D46247E6246671410036CF34 /* SceneDelegate.swift */,
-				D46247E8246671410036CF34 /* ViewController.swift */,
+				D44F639B2466DEED0003DDC0 /* ViewController */,
 				D46247EA246671410036CF34 /* Main.storyboard */,
 				D462480424669E0F0036CF34 /* MusicCell.swift */,
-				D462480224669A530036CF34 /* CollectionViewSampleViewController.swift */,
-				D4624800246695220036CF34 /* DetailViewController.swift */,
 				D46247FC246687B40036CF34 /* WeatherCell.swift */,
 				D46247FE24668A360036CF34 /* DateInformation.swift */,
-				D46247FA246686010036CF34 /* SampleTableViewController.swift */,
 				D46247F824667ABF0036CF34 /* Music.swift */,
 				D46247ED246671420036CF34 /* Assets.xcassets */,
 				D46247EF246671420036CF34 /* LaunchScreen.storyboard */,

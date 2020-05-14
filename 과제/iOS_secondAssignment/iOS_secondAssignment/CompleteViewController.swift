@@ -25,6 +25,7 @@ class CompleteViewController: UIViewController {
         scrollView.delegate = self
         soptImageHeightConstant = soptImage.frame.height
         
+        scrollView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: tabBarController!.tabBar.frame.height + 15.0, right: 0.0)
     }
     
 }

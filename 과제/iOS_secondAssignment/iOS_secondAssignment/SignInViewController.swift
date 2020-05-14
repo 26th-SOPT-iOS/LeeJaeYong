@@ -37,11 +37,14 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func signInBtnPressed(_ sender: UIButton) {
+        // Data Transform to homeVC
         guard let completeVC = self.storyboard?.instantiateViewController(identifier: "CompleteViewController") as? CompleteViewController else { return }
         completeVC.id = idTextField.text
         completeVC.password = passwordTextField.text
-        completeVC.modalPresentationStyle = .fullScreen
-        self.present(completeVC, animated: true, completion: nil)
+        
+        guard let tabBarVC = self.storyboard?.instantiateViewController(identifier: "TabBarController") as? UITabBarController else { return }
+        tabBarVC.modalPresentationStyle = .fullScreen
+        self.present(tabBarVC, animated: true, completion: nil)
     }
     
 }
