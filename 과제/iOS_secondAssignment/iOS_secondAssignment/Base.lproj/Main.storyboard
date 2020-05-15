@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lxv-ID-3li">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xit-hG-ye5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -695,9 +695,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="set" translatesAutoresizingMaskIntoConstraints="NO" id="voy-fe-cjW">
-                                <rect key="frame" x="378" y="60" width="20" height="20"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YE3-Tn-1VX">
                                 <rect key="frame" x="0.0" y="83.5" width="414" height="729.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -757,14 +754,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztu-Jb-6W3">
+                                <rect key="frame" x="378" y="60.5" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="4E2-9b-Oim"/>
+                                    <constraint firstAttribute="width" constant="20" id="q4b-Ls-MbW"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="set"/>
+                                <connections>
+                                    <action selector="setBtnPressed:" destination="2qF-Mc-fBY" eventType="touchUpInside" id="AOl-Py-8J5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="EGZ-fu-53o" firstAttribute="top" secondItem="GTW-a7-fmB" secondAttribute="top" constant="57" id="48g-7G-FpW"/>
-                            <constraint firstAttribute="trailing" secondItem="voy-fe-cjW" secondAttribute="trailing" constant="16" id="7Fe-2x-Q4Y"/>
                             <constraint firstItem="NT5-5O-cqK" firstAttribute="trailing" secondItem="YE3-Tn-1VX" secondAttribute="trailing" id="M2g-sn-6V2"/>
+                            <constraint firstItem="EGZ-fu-53o" firstAttribute="centerY" secondItem="ztu-Jb-6W3" secondAttribute="centerY" id="Qe7-EK-EOO"/>
                             <constraint firstItem="YE3-Tn-1VX" firstAttribute="leading" secondItem="NT5-5O-cqK" secondAttribute="leading" id="c6h-7u-f9d"/>
-                            <constraint firstItem="voy-fe-cjW" firstAttribute="top" secondItem="GTW-a7-fmB" secondAttribute="top" constant="60" id="fnZ-gi-8wL"/>
+                            <constraint firstItem="NT5-5O-cqK" firstAttribute="trailing" secondItem="ztu-Jb-6W3" secondAttribute="trailing" constant="16" id="jiB-dD-8b4"/>
                             <constraint firstItem="EGZ-fu-53o" firstAttribute="leading" secondItem="NT5-5O-cqK" secondAttribute="leading" constant="16" id="o9W-O2-JtS"/>
                             <constraint firstItem="YE3-Tn-1VX" firstAttribute="top" secondItem="EGZ-fu-53o" secondAttribute="bottom" id="p2r-p3-0oZ"/>
                             <constraint firstItem="NT5-5O-cqK" firstAttribute="bottom" secondItem="YE3-Tn-1VX" secondAttribute="bottom" id="vFw-Bq-xg5"/>

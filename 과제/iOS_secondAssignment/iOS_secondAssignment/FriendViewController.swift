@@ -19,10 +19,10 @@ class FriendViewController: UIViewController {
         friendTableView.delegate = self
         friendTableView.dataSource = self
         setFriendInformations()
-        for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) Font names: \(names)")
-        }
+//        for family in UIFont.familyNames.sorted() {
+//            let names = UIFont.fontNames(forFamilyName: family)
+//            print("Family: \(family) Font names: \(names)")
+//        }
     }
     
     private func setFriendInformations() {
@@ -50,7 +50,31 @@ class FriendViewController: UIViewController {
         friendInfos = [me, friend1, friend2, friend3, friend4, friend5, friend6, friend7, friend8, friend9, friend10, friend11, friend12, friend13, friend14, friend15, friend16, friend17, friend18, friend19]
     }
     
+    @IBAction func setBtnPressed(_ sender: Any) {
+        let actionSheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        let friendControl = UIAlertAction(title: "친구 관리", style: .default) { (action) in
+            // 눌렀을 때 행동
+        }
+        let allSet = UIAlertAction(title: "전체 설정", style: .default) { (action) in
+            // 눌렀을 때 행동
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        actionSheet.addAction(friendControl)
+        actionSheet.addAction(allSet)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true) {
+            actionSheet.view.superview?.isUserInteractionEnabled = true
+            actionSheet.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
+        }
+    }
+    
+    @objc func alertControllerBackgroundTapped() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
+
 
 //MARK: - tableViewDelegate,Datasource
 extension FriendViewController: UITableViewDelegate, UITableViewDataSource {

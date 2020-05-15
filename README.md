@@ -390,3 +390,88 @@ func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.Ed
 >
 > 애플 문서 참고 👉 https://developer.apple.com/documentation/uikit/uitableviewdatasource/1614871-tableview
 
+✅ 도전과제 2: actionsheet
+
+<img src="https://user-images.githubusercontent.com/56102421/82008612-2523d980-96a8-11ea-8952-744d2824933a.gif" width="30%">  
+
+- 버튼에 background image를 주고 FriendTableViewController에 드래그 드롭해준다.
+- 다음 코드 추가
+
+```swift
+@IBAction func setBtnPressed(_ sender: Any) {
+        let actionSheet = UIAlertController.init(title: nil, message: nil, 
+        preferredStyle: .actionSheet)
+        let friendControl = UIAlertAction(title: "친구 관리", style: .default) { (action) in
+            // 눌렀을 때 행동
+        }
+        let allSet = UIAlertAction(title: "전체 설정", style: .default) { (action) in
+            // 눌렀을 때 행동
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        actionSheet.addAction(friendControl)
+        actionSheet.addAction(allSet)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true, completion: nil)
+}
+```
+
+
+
+> UIAlertController: user에게 alert를 줄 수 있는 객체
+>
+> - preferredStyle은 두가지로, alert와 actionSheet가 존재
+> - addAction: alert창에 행동객체를 추가하는 메소드
+>
+> UIAlertAction: user가 alert창의 버튼을 탭하였을 때 일어나는 행동에 관한 메소드
+>
+> - Style로 alert창 위 버튼을 정해진 형태로 커스텀할 수 있다.
+>
+> 참고 👉 https://developer.apple.com/documentation/uikit/uialertcontroller
+
+🤯 actionSheet outside 부분 눌렀을 때 actionSheet 닫기
+
+- 1주차 과제에서 했던 것처럼 actionSheet를 호출할 때 대기하는 함수를 클로저로 만들어주자
+
+```swift
+present(actionSheet, animated: true) {
+		actionSheet.view.superview?.isUserInteractionEnabled = true
+    actionSheet.view.superview?.addGestureRecognizer(
+              UITapGestureRecognizer(target: self, 			              action:#selector(self.alertControllerBackgroundTapped)))
+}
+```
+
+> actionSheet의 view의 superview는 friendTableView!
+>
+> isUserInteractionEnabled: 뜻 그대로 user가 event를 했는지 안했는지 알려주는 메소드
+>
+> - button에서의 default값은 true이지만, imageView와 같은 view에서는 false로 세팅되어 있다
+> - 이때 중요한 점은 이벤트 콜백으로 정의해야한다는 점이다. 즉 클로저형태로..!?
+>
+> addGestureRecognizer: 뜻 그대로 제스처가 인지되도록 할 수 있는 recognizer를 view에 추가하는 메소드
+>
+> - 내부에는 UIGestureRecognizer 객체가 와야하고 nil이 되어서는 안된다.
+>
+> UIGestureRecognizer: 제스처 recognizer
+>
+> - 하위클래스는 7가지하다.
+> - UITapGestureRecognizer: tap하였을 때 recognizer
+> - UIPinchGestureRecognizer: 두 손가락을 모으거나 떨어뜨릴 때 recognizer (기본적으로는 zoom in out)
+> - ... 등등 
+>
+> #selector(): calss the specified method of the object in the target property.
+
+```swift
+
+    @objc func alertControllerBackgroundTapped() {
+        self.dismiss(animated: true, completion: nil)
+    }
+```
+
+> @objc: selector로 함수 호출 방식이 objective-c 에서 쓰이는 것이어서 앞에 붙여줌으로써 사용가능
+
+🤯 궁금한 점
+
+- set버튼을 누르면 autolayout이 이상하다는 오류가 경고창이 뜨는데 이게 무엇인지 알아봐야겠다.
+
+<img src="https://user-images.githubusercontent.com/56102421/82013197-a8e3c300-96b4-11ea-8791-b47bb8ddc804.gif" width= "50%"> 
