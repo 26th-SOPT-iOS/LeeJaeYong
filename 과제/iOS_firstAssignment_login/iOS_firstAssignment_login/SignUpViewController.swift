@@ -12,22 +12,41 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-    @IBAction func signupPressed(_ sender: Any) {
-        guard let completeViewController = self.storyboard?.instantiateViewController(identifier: "CompleteViewController") as? CompleteViewController else { return }
-        completeViewController.id = idTextField.text
-        completeViewController.pwd = passwordTextField.text
-        
-        completeViewController.modalPresentationStyle = .fullScreen // 전체 화면 만드는 property
-        self.present(completeViewController, animated: true, completion: {
-            if let navController = self.navigationController {
-                navController.popViewController(animated: true)
-            } // 네비게이션컨트롤러 = 그릇
-        }) // 화면 전환
+    @IBAction func signupBtnPressed(_ sender: Any) {
+        guard let inputID = idTextField.text else { return }
+        guard let inputPWD = passwordTextField.text else { return }
+        guard let inputNAME = nameTextField.text else {
+            return
+        }
+        guard let inputEMAIL = emailTextField.text else {
+            return
+        }
+        guard let inputPHONE = phoneTextField.text else {
+            return
+        }
+        SignupService.shared.signup(id: inputID, pwd: inputPWD, name: inputNAME, email: inputEMAIL, phone: inputPHONE) { networkResult in
+            switch networkResult {
+            case .success:
+                print("\(inputID)")
+                print("\(inputPWD)")
+            case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "회원가입 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr") case .networkFail: print("networkFail") }
+        }
     }
-
+    
 }

@@ -72,20 +72,12 @@
 				D442E28D2456FF930089082C /* SceneDelegate.swift */,
 				D4D36039246A9B1500D8DDFF /* Controller */,
 				D442E2912456FF930089082C /* Main.storyboard */,
-				D4A104DB246E57AE00CD76B2 /* View */,
 				D4A104DC246E57BE00CD76B2 /* Model */,
 				D442E2942456FF930089082C /* Assets.xcassets */,
 				D442E2962456FF930089082C /* LaunchScreen.storyboard */,
 				D442E2992456FF930089082C /* Info.plist */,
 			);
 			path = iOS_secondAssignment;
-			sourceTree = "<group>";
-		};
-		D4A104DB246E57AE00CD76B2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		D4A104DC246E57BE00CD76B2 /* Model */ = {

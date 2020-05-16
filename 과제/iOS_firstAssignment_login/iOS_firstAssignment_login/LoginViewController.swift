@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -17,10 +17,10 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-     
-        // textfield 초기화
-        self.idTextField.text = ""
-        self.passwordTextField.text = ""
+        
+//        // textfield 초기화
+//        self.idTextField.text = ""
+//        self.passwordTextField.text = ""
     }
     
     override func viewDidLoad() {
@@ -30,26 +30,28 @@ class LoginViewController: UIViewController {
         signupButton.layer.cornerRadius = 5
     }
 
-    @IBAction func loginPressed(_ sender: Any) {
-        if idTextField.text == "" || passwordTextField.text == "" {
-            print("아이디 또는 비밀번호를 채워주세요.")
-            alert()
-        } else {
-            guard let completeViewController = self.storyboard?.instantiateViewController(identifier: "CompleteViewController") as? CompleteViewController else { return }
-            
-            completeViewController.id = idTextField.text
-            completeViewController.pwd = passwordTextField.text
-            
-            completeViewController.modalPresentationStyle = .fullScreen // 다음 화면 전체화면 만들기
-            self.present(completeViewController, animated: true, completion: {
-            })
-        }// 화면 전환
-    }
-    func alert() {
-        let dialog = UIAlertController(title: "로그인 오류", message: "아이디 또는 비밀번호를 채워주세요.", preferredStyle: .alert)
-        let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
-        dialog.addAction(action)
-        self.present(dialog, animated: true, completion: nil)
+    @IBAction func loginBtnPressed(_ sender: Any) {
+        guard let inputID = idTextField.text else { return }
+        guard let inputPWD = passwordTextField.text else { return }
+        LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
+            switch networkResult {
+            case .success(let token):
+                print(token)
+                guard let token = token as? String else { return }
+                UserDefaults.standard.set(token, forKey: "token")
+                guard let CompleteViewController = self.storyboard?.instantiateViewController(identifier:
+                    "CompleteViewController") as? CompleteViewController else { return }
+                CompleteViewController.modalPresentationStyle = .fullScreen
+                
+                self.present(CompleteViewController, animated: true, completion: nil) case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr") case .networkFail: print("networkFail") }
+        }
     }
     
 }

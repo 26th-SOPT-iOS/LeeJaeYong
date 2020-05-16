@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28BA513D7877098CECA9CB47 /* Pods_iOS_firstAssignment_login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 471A9525E7BD0234AB699CCD /* Pods_iOS_firstAssignment_login.framework */; };
 		D40B53DD24505AEA0045BB8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40B53DC24505AEA0045BB8F /* AppDelegate.swift */; };
 		D40B53DF24505AEA0045BB8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40B53DE24505AEA0045BB8F /* SceneDelegate.swift */; };
 		D40B53E124505AEA0045BB8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40B53E024505AEA0045BB8F /* LoginViewController.swift */; };
@@ -15,9 +16,18 @@
 		D40B53E924505AEA0045BB8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D40B53E724505AEA0045BB8F /* LaunchScreen.storyboard */; };
 		D40B53F124505B480045BB8F /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40B53F024505B480045BB8F /* CompleteViewController.swift */; };
 		D40B53F324505B7E0045BB8F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40B53F224505B7E0045BB8F /* SignUpViewController.swift */; };
+		D460288F246FBD5C007FA5FE /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460288E246FBD5C007FA5FE /* APIConstants.swift */; };
+		D4602891246FBE5A007FA5FE /* SigninData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4602890246FBE5A007FA5FE /* SigninData.swift */; };
+		D4C5BD8F246FC572006120C3 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C5BD8E246FC572006120C3 /* NetworkResult.swift */; };
+		D4C5BD91246FC64C006120C3 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C5BD90246FC64C006120C3 /* LoginService.swift */; };
+		D4C5BD93246FD15B006120C3 /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C5BD92246FD15B006120C3 /* SignupService.swift */; };
+		D4C5BD95246FD168006120C3 /* SignupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C5BD94246FD168006120C3 /* SignupData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		471A9525E7BD0234AB699CCD /* Pods_iOS_firstAssignment_login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_firstAssignment_login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F84CCEF68C2C473938D2E62 /* Pods-iOS_firstAssignment_login.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_firstAssignment_login.release.xcconfig"; path = "Target Support Files/Pods-iOS_firstAssignment_login/Pods-iOS_firstAssignment_login.release.xcconfig"; sourceTree = "<group>"; };
+		AD9EB3309C66A592E4F4E8BC /* Pods-iOS_firstAssignment_login.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_firstAssignment_login.debug.xcconfig"; path = "Target Support Files/Pods-iOS_firstAssignment_login/Pods-iOS_firstAssignment_login.debug.xcconfig"; sourceTree = "<group>"; };
 		D40B53D924505AEA0045BB8F /* iOS_firstAssignment_login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_firstAssignment_login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40B53DC24505AEA0045BB8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D40B53DE24505AEA0045BB8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +38,12 @@
 		D40B53EA24505AEA0045BB8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D40B53F024505B480045BB8F /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		D40B53F224505B7E0045BB8F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D460288E246FBD5C007FA5FE /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		D4602890246FBE5A007FA5FE /* SigninData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninData.swift; sourceTree = "<group>"; };
+		D4C5BD8E246FC572006120C3 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		D4C5BD90246FC64C006120C3 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		D4C5BD92246FD15B006120C3 /* SignupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
+		D4C5BD94246FD168006120C3 /* SignupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +51,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28BA513D7877098CECA9CB47 /* Pods_iOS_firstAssignment_login.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40533FC6FFB83FC65B679F6B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD9EB3309C66A592E4F4E8BC /* Pods-iOS_firstAssignment_login.debug.xcconfig */,
+				9F84CCEF68C2C473938D2E62 /* Pods-iOS_firstAssignment_login.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C3D34337564D658E2E1153EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				471A9525E7BD0234AB699CCD /* Pods_iOS_firstAssignment_login.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D40B53D024505AEA0045BB8F = {
 			isa = PBXGroup;
 			children = (
 				D40B53DB24505AEA0045BB8F /* iOS_firstAssignment_login */,
 				D40B53DA24505AEA0045BB8F /* Products */,
+				40533FC6FFB83FC65B679F6B /* Pods */,
+				C3D34337564D658E2E1153EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,15 +96,21 @@
 		D40B53DB24505AEA0045BB8F /* iOS_firstAssignment_login */ = {
 			isa = PBXGroup;
 			children = (
+				D40B53E524505AEA0045BB8F /* Assets.xcassets */,
+				D40B53E224505AEA0045BB8F /* Main.storyboard */,
+				D40B53E724505AEA0045BB8F /* LaunchScreen.storyboard */,
 				D40B53DC24505AEA0045BB8F /* AppDelegate.swift */,
 				D40B53DE24505AEA0045BB8F /* SceneDelegate.swift */,
 				D40B53E024505AEA0045BB8F /* LoginViewController.swift */,
-				D40B53E224505AEA0045BB8F /* Main.storyboard */,
-				D40B53E524505AEA0045BB8F /* Assets.xcassets */,
-				D40B53E724505AEA0045BB8F /* LaunchScreen.storyboard */,
 				D40B53EA24505AEA0045BB8F /* Info.plist */,
+				D460288E246FBD5C007FA5FE /* APIConstants.swift */,
 				D40B53F024505B480045BB8F /* CompleteViewController.swift */,
 				D40B53F224505B7E0045BB8F /* SignUpViewController.swift */,
+				D4C5BD8E246FC572006120C3 /* NetworkResult.swift */,
+				D4C5BD90246FC64C006120C3 /* LoginService.swift */,
+				D4C5BD92246FD15B006120C3 /* SignupService.swift */,
+				D4602890246FBE5A007FA5FE /* SigninData.swift */,
+				D4C5BD94246FD168006120C3 /* SignupData.swift */,
 			);
 			path = iOS_firstAssignment_login;
 			sourceTree = "<group>";
@@ -80,9 +122,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D40B53ED24505AEA0045BB8F /* Build configuration list for PBXNativeTarget "iOS_firstAssignment_login" */;
 			buildPhases = (
+				E2CC3A1E8391E288E125DE55 /* [CP] Check Pods Manifest.lock */,
 				D40B53D524505AEA0045BB8F /* Sources */,
 				D40B53D624505AEA0045BB8F /* Frameworks */,
 				D40B53D724505AEA0045BB8F /* Resources */,
+				24F3C94A6AE1BA87CC0BAD80 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +183,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24F3C94A6AE1BA87CC0BAD80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_firstAssignment_login/Pods-iOS_firstAssignment_login-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_firstAssignment_login/Pods-iOS_firstAssignment_login-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS_firstAssignment_login/Pods-iOS_firstAssignment_login-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2CC3A1E8391E288E125DE55 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOS_firstAssignment_login-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D40B53D524505AEA0045BB8F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -146,9 +232,15 @@
 			files = (
 				D40B53E124505AEA0045BB8F /* LoginViewController.swift in Sources */,
 				D40B53DD24505AEA0045BB8F /* AppDelegate.swift in Sources */,
+				D460288F246FBD5C007FA5FE /* APIConstants.swift in Sources */,
+				D4C5BD93246FD15B006120C3 /* SignupService.swift in Sources */,
 				D40B53DF24505AEA0045BB8F /* SceneDelegate.swift in Sources */,
+				D4C5BD91246FC64C006120C3 /* LoginService.swift in Sources */,
+				D4602891246FBE5A007FA5FE /* SigninData.swift in Sources */,
+				D4C5BD95246FD168006120C3 /* SignupData.swift in Sources */,
 				D40B53F124505B480045BB8F /* CompleteViewController.swift in Sources */,
 				D40B53F324505B7E0045BB8F /* SignUpViewController.swift in Sources */,
+				D4C5BD8F246FC572006120C3 /* NetworkResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +382,7 @@
 		};
 		D40B53EE24505AEA0045BB8F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD9EB3309C66A592E4F4E8BC /* Pods-iOS_firstAssignment_login.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,6 +401,7 @@
 		};
 		D40B53EF24505AEA0045BB8F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F84CCEF68C2C473938D2E62 /* Pods-iOS_firstAssignment_login.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

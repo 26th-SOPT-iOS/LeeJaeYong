@@ -1,0 +1,6 @@
+framework module Pods_iOS_firstAssignment_login {
+  umbrella header "Pods-iOS_firstAssignment_login-umbrella.h"
+
+  export *
+  module * { export * }
+}
