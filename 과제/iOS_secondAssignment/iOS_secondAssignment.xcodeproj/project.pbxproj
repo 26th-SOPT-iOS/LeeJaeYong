@@ -68,21 +68,77 @@
 		D442E28A2456FF930089082C /* iOS_secondAssignment */ = {
 			isa = PBXGroup;
 			children = (
-				D442E28B2456FF930089082C /* AppDelegate.swift */,
-				D442E28D2456FF930089082C /* SceneDelegate.swift */,
+				D48AE9F42476C6650079A535 /* Sources */,
+				D48AE9F32476C6540079A535 /* Resources */,
+				D442E2992456FF930089082C /* Info.plist */,
+			);
+			path = iOS_secondAssignment;
+			sourceTree = "<group>";
+		};
+		D48AE9F02476C5AC0079A535 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D442E2912456FF930089082C /* Main.storyboard */,
+				D442E2962456FF930089082C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D48AE9F12476C5C20079A535 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				D442E28F2456FF930089082C /* SignInViewController.swift */,
 				D44E9492246A723800090556 /* FriendViewController.swift */,
 				D4CA27F22457DC630032F2AA /* SignUpViewController.swift */,
 				D4CA27F42457DC980032F2AA /* CompleteViewController.swift */,
-				D442E2912456FF930089082C /* Main.storyboard */,
-				D4A9C405246D87C000638B70 /* PersonInfo.swift */,
-				D4A9C407246D87D800638B70 /* FriendTableViewCell.swift */,
-				D4E9242C24581C250090A7B5 /* FormTextField.swift */,
-				D442E2942456FF930089082C /* Assets.xcassets */,
-				D442E2962456FF930089082C /* LaunchScreen.storyboard */,
-				D442E2992456FF930089082C /* Info.plist */,
 			);
-			path = iOS_secondAssignment;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D48AE9F32476C6540079A535 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D48AE9F72476C6B60079A535 /* Designs */,
+				D48AE9F02476C5AC0079A535 /* Storyboards */,
+				D442E2942456FF930089082C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D48AE9F42476C6650079A535 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D442E28B2456FF930089082C /* AppDelegate.swift */,
+				D442E28D2456FF930089082C /* SceneDelegate.swift */,
+				D48AE9F12476C5C20079A535 /* ViewControllers */,
+				D48AE9F62476C69A0079A535 /* Models */,
+				D48AE9F52476C6860079A535 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D48AE9F52476C6860079A535 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4A9C407246D87D800638B70 /* FriendTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D48AE9F62476C69A0079A535 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4A9C405246D87C000638B70 /* PersonInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D48AE9F72476C6B60079A535 /* Designs */ = {
+			isa = PBXGroup;
+			children = (
+				D4E9242C24581C250090A7B5 /* FormTextField.swift */,
+			);
+			path = Designs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -1,0 +1,6 @@
+framework module Pods_iOS_secondAssignment {
+  umbrella header "Pods-iOS_secondAssignment-umbrella.h"
+
+  export *
+  module * { export * }
+}
