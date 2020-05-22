@@ -698,9 +698,7 @@ struct TokenData: Codable {
 
 ✅ 회원가입 API 통신해보기
 
-위 로그인과정과 같지만 한가지 고쳐주어야 하는 것
-
-회원가입에서는 토큰을 주지 않는다. 
+위 로그인과정에서 고쳐주어야 하는 것: 1. 회원가입에서는 토큰을 주지 않는다.  2. 변수 늘리기
 
 ```swift
 private func isSignup(by data: Data) -> NetworkResult<Any> {
@@ -715,3 +713,71 @@ private func isSignup(by data: Data) -> NetworkResult<Any> {
 ```
 
 > 성공했을 때 회원가입 성공되었다는 메세지를 로그에 띄워 제대로 되었는지 확인하는 용도로 씀
+
+✅ 도전과제 1: 회원가입 후 자동 로그인
+
+*token값으로 확인을 하지만 현재 token값을 확인해주는 API가 없기 때문에 id,pwd로 login API를 이용해서 구현하자*
+
+SignUpViewController 클래스 내에 함수 선언 후 Signup 통신이 성공헀을 때 불러온다.
+
+```swift
+private func setAutoLogin(id: String, pwd: String) -> Void {
+        UserDefaults.standard.set(id, forKey: "id")
+        UserDefaults.standard.set(pwd, forKey: "pwd")
+}
+```
+
+> UserDefaults: 사용자 정보 데이터베이스로, 키 값들을 저장하여 다시 불러올 때 쓰인다. 
+>
+> - 애플문서 뜻: An interface to the user’s defaults database, where you store key-value pairs persistently across launches of your app.
+>
+> - standard: 우리가 처음에 배운 singleton pattern으로 쓰임! 왜냐면 데이터베이스인데 계속 다르게 생성해 불러올 수 없으므로!
+> - set 메소드: key값 저장
+
+회원가입 버튼이 눌리면 로그인 페이지로 돌아가도록 코드 작성
+
+```swift
+guard let signInViewController = self.storyboard?.instantiateViewController(identifier: "SignInViewController") as? SignInViewController else { return }
+signInViewController.modalPresentationStyle = .fullScreen
+self.present(signInViewController, animated: true, completion: nil)
+```
+
+SignInViewController 클래스 내의 viewDidLoad 함수내에 코드 작성 
+
+```swift
+ guard let id = UserDefaults.standard.string(forKey: "id") else { return }
+ guard let password = UserDefaults.standard.string(forKey: "pwd") else { return }
+```
+
+> UserDefaults 내에 저장되어 있는 id, pwd를 불러온다.
+
+LoginService 통신 코드를 viewDidLoad 함수 내에 작성(그대로 복붙하면 된다.) 
+
+✅ 도전과제 2: 자동 로그인
+
+1. BEMCheckbox
+
+   Cocoapod로 다운받기 -> UIView -> inspector에서 클래스 BEMCheckbox로 바꿈 -> 커스텀하기
+
+   BEMCheckbox 애니메이션 바꿔보기
+
+   ```swift
+   self.myCheckBox.onAnimationType = .bounce
+   self.myCheckBox.offAnimationType = .bounce
+   ```
+
+2. 자동 로그인
+
+   SignInViewController 클래스 내  viewDidLoad 함수내에 다음 코드 작성
+
+   ```swift
+   private func isAutoLoginOn(id: String, pwd: String) -> Void {
+           if self.myCheckBox.on {
+               UserDefaults.standard.set(id, forKey: "id")
+               UserDefaults.standard.set(pwd, forKey: "pwd")
+           }
+   }
+   ```
+
+   로그인하기 버튼이 눌렸을 때 로그인 통신이 성공했다면 위 함수 불러오기
+

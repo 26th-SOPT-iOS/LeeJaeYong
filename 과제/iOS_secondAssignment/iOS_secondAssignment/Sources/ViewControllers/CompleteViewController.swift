@@ -28,6 +28,14 @@ class CompleteViewController: UIViewController {
         scrollView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: tabBarController!.tabBar.frame.height + 15.0, right: 0.0)
     }
     
+    @IBAction func logoutBtnPressed(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "id")
+        UserDefaults.standard.removeObject(forKey: "pwd")
+        guard let FirstNavigationController = self.storyboard?.instantiateViewController(identifier: "FirstNavigationController") as? UINavigationController else { return }
+        FirstNavigationController.modalPresentationStyle = .fullScreen
+        self.present(FirstNavigationController, animated: false, completion: nil)
+    }
+    
 }
 
 

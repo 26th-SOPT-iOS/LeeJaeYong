@@ -47,12 +47,12 @@ class SignUpViewController: UIViewController {
             case .success(let message):
                 print(message)
                 
+                // autologin 구현
+                self.setAutoLogin(id: inputID, pwd: inputPWD)
                 
                 guard let signInViewController = self.storyboard?.instantiateViewController(identifier: "SignInViewController") as? SignInViewController else {
                     return
                 }
-                signInViewController.idAuto = inputID
-                signInViewController.passwordAuto = inputPWD
                 signInViewController.modalPresentationStyle = .fullScreen
                 self.present(signInViewController, animated: true, completion: nil)
                 
@@ -70,5 +70,9 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    private func setAutoLogin(id: String, pwd: String) -> Void {
+        UserDefaults.standard.set(id, forKey: "id")
+        UserDefaults.standard.set(pwd, forKey: "pwd")
+    }
     
 }

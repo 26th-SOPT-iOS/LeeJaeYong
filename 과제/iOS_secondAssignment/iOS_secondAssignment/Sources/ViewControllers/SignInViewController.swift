@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BEMCheckBox
 
 class SignInViewController: UIViewController {
 
@@ -15,8 +16,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
     
-    var idAuto: String?
-    var passwordAuto: String?
+    @IBOutlet weak var myCheckBox: BEMCheckBox!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
@@ -30,16 +31,19 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.myCheckBox.onAnimationType = .bounce
+        self.myCheckBox.offAnimationType = .bounce
+        myCheckBox.delegate = self
         // textfield 및 button 둥글게 만들기 속성
         idTextField.layer.cornerRadius = 22
         passwordTextField.layer.cornerRadius = 22
         signInButton.layer.cornerRadius = 24
-        guard let id = idAuto else { return }
-        guard let password = passwordAuto else { return }
+        
+        guard let id = UserDefaults.standard.string(forKey: "id") else { return }
+        guard let password = UserDefaults.standard.string(forKey: "pwd") else { return }
         
         LoginService.shared.login(id: id, pwd: password) { networkResult in
             switch networkResult {
-                
             case .success(let token):
                 guard let token = token as? String else { return }
                 UserDefaults.standard.set(token, forKey: "token")
@@ -72,6 +76,9 @@ class SignInViewController: UIViewController {
             switch networkResult {
                 
             case .success(let token):
+                // autoLogin 구현
+                self.isAutoLoginOn(id: inputID, pwd: inputPWD)
+                
                 guard let token = token as? String else { return }
                 UserDefaults.standard.set(token, forKey: "token")
                 guard let tabBarController = self.storyboard?.instantiateViewController(identifier: "TabBarController") as? UITabBarController else {
@@ -92,9 +99,20 @@ class SignInViewController: UIViewController {
             case .networkFail: print("networkFail")
             }
         }
-        
-        
     }
     
+    private func isAutoLoginOn(id: String, pwd: String) -> Void {
+        
+        if self.myCheckBox.on {
+            UserDefaults.standard.set(id, forKey: "id")
+            UserDefaults.standard.set(pwd, forKey: "pwd")
+        }
+    }
+}
+
+extension SignInViewController: BEMCheckBoxDelegate {
+    func didTap(_ checkBox: BEMCheckBox) {
+        print("did Tap")
+    }
 }
 

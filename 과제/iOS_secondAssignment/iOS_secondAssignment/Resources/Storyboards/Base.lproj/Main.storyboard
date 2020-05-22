@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xit-hG-ye5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2qF-Mc-fBY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -147,16 +147,37 @@
                                     <segue destination="jiW-uo-xJ9" kind="show" id="XVt-cR-ehh"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUN-79-NBf" customClass="BEMCheckBox">
+                                <rect key="frame" x="57" y="481" width="17" height="17"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="bIH-VY-X7V"/>
+                                    <constraint firstAttribute="width" constant="17" id="ghl-Gr-DUB"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmE-34-rbI">
+                                <rect key="frame" x="85" y="481" width="56.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="3Vv-Rg-IGh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4x7-gj-7rS"/>
+                            <constraint firstItem="3Vv-Rg-IGh" firstAttribute="top" secondItem="rmE-34-rbI" secondAttribute="bottom" constant="11" id="9pU-se-4K0"/>
+                            <constraint firstItem="3Vv-Rg-IGh" firstAttribute="top" secondItem="wUN-79-NBf" secondAttribute="bottom" constant="11" id="Dni-MT-oRv"/>
                             <constraint firstItem="AWh-54-oDs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="Fg0-Jw-1P0"/>
+                            <constraint firstItem="wUN-79-NBf" firstAttribute="top" secondItem="jy7-SL-dpf" secondAttribute="bottom" constant="11" id="HYU-Wn-UGp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rmE-34-rbI" secondAttribute="trailing" constant="272.5" id="IIo-PL-LKT"/>
                             <constraint firstItem="Gs2-34-Gp3" firstAttribute="top" secondItem="AWh-54-oDs" secondAttribute="bottom" constant="58" id="Okm-vu-mM4"/>
                             <constraint firstItem="jy7-SL-dpf" firstAttribute="top" secondItem="Gs2-34-Gp3" secondAttribute="bottom" constant="18" id="R6j-H9-WFL"/>
                             <constraint firstItem="Gs2-34-Gp3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S9O-PT-feT"/>
+                            <constraint firstItem="rmE-34-rbI" firstAttribute="top" secondItem="jy7-SL-dpf" secondAttribute="bottom" constant="11" id="gQQ-5X-7Ae"/>
+                            <constraint firstItem="wUN-79-NBf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="i89-jq-lmr"/>
                             <constraint firstItem="jy7-SL-dpf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lMg-Wd-MFT"/>
                             <constraint firstItem="R0B-I0-L8P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nJg-0X-5r4"/>
+                            <constraint firstItem="rmE-34-rbI" firstAttribute="leading" secondItem="wUN-79-NBf" secondAttribute="trailing" constant="11" id="opH-fC-8jI"/>
                             <constraint firstItem="AWh-54-oDs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q4h-GN-bn9"/>
                             <constraint firstItem="R0B-I0-L8P" firstAttribute="top" secondItem="3Vv-Rg-IGh" secondAttribute="bottom" constant="17" id="uzo-fd-2Sq"/>
                             <constraint firstItem="3Vv-Rg-IGh" firstAttribute="top" secondItem="jy7-SL-dpf" secondAttribute="bottom" constant="39" id="vkn-Qx-Xd0"/>
@@ -166,6 +187,7 @@
                     <navigationItem key="navigationItem" id="F35-a6-Gnv"/>
                     <connections>
                         <outlet property="idTextField" destination="Gs2-34-Gp3" id="94a-b9-vNt"/>
+                        <outlet property="myCheckBox" destination="wUN-79-NBf" id="N3X-wQ-xys"/>
                         <outlet property="passwordTextField" destination="jy7-SL-dpf" id="KC3-cq-jEa"/>
                         <outlet property="signInButton" destination="3Vv-Rg-IGh" id="WmV-PM-3gy"/>
                         <outlet property="signUpButton" destination="R0B-I0-L8P" id="Ai1-YD-XIG"/>
@@ -173,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2136.8000000000002" y="149.77511244377811"/>
+            <point key="canvasLocation" x="2134.7826086956525" y="149.33035714285714"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="rKj-Cg-g32">
@@ -689,6 +711,17 @@
                                     <constraint firstAttribute="height" constant="210" id="0ez-i1-8Mt"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcF-ee-P3c">
+                                <rect key="frame" x="329" y="42" width="73" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutBtnPressed:" destination="1ZZ-DF-sSj" eventType="touchUpInside" id="yIj-0A-kNU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -827,7 +860,7 @@
         <!--Navigation Controller-->
         <scene sceneID="eMY-GA-Toe">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xit-hG-ye5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FirstNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Xit-hG-ye5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rdQ-zU-9yj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
