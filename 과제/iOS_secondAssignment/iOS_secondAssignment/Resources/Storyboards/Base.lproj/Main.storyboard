@@ -10,12 +10,12 @@
         <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SignInViewController" customModule="iOS_secondAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="BYZ-38-t0r" customClass="SignInViewController" customModule="iOS_secondAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="이메일" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gs2-34-Gp3" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="아이디" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gs2-34-Gp3" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
                                 <rect key="frame" x="57.5" y="364" width="299" height="44"/>
                                 <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -256,7 +256,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="전화번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NJa-M0-VaV" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="핸드폰 번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NJa-M0-VaV" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
                                 <rect key="frame" x="57" y="502" width="300" height="44"/>
                                 <color key="backgroundColor" red="0.92941802740000001" green="0.92940050360000004" blue="0.92941236500000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>

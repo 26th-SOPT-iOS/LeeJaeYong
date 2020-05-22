@@ -30,6 +30,8 @@ class SignUpViewController: UIViewController {
         nameTextField.layer.cornerRadius = 22
         idTextField.layer.cornerRadius = 22
         passwordTextField.layer.cornerRadius = 22
+        emailTextField.layer.cornerRadius = 22
+        phoneTextField.layer.cornerRadius = 22
         signUpButton.layer.cornerRadius = 24
     }
     
@@ -42,14 +44,17 @@ class SignUpViewController: UIViewController {
         
         SignupService.shared.signup(id: inputID, pwd: inputPWD, name: inputNAME, email: inputEMAIL, phone: inputPHONE) { networkResult in
             switch networkResult {
-                
             case .success(let message):
                 print(message)
-                guard let tabBarController = self.storyboard?.instantiateViewController(identifier: "TabBarController") as? UITabBarController else {
+                
+                
+                guard let signInViewController = self.storyboard?.instantiateViewController(identifier: "SignInViewController") as? SignInViewController else {
                     return
                 }
-                tabBarController.modalPresentationStyle = .fullScreen
-                self.present(tabBarController, animated: true, completion: nil)
+                signInViewController.idAuto = inputID
+                signInViewController.passwordAuto = inputPWD
+                signInViewController.modalPresentationStyle = .fullScreen
+                self.present(signInViewController, animated: true, completion: nil)
                 
             case .requestErr(let message):
                 guard let message = message as? String else { return }

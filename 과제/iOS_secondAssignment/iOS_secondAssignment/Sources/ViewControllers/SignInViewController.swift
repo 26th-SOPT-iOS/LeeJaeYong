@@ -15,6 +15,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
     
+    var idAuto: String?
+    var passwordAuto: String?
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
@@ -32,10 +34,10 @@ class SignInViewController: UIViewController {
         idTextField.layer.cornerRadius = 22
         passwordTextField.layer.cornerRadius = 22
         signInButton.layer.cornerRadius = 24
-        guard let inputID = idTextField.text else { return }
-        guard let inputPWD = passwordTextField.text else { return }
+        guard let id = idAuto else { return }
+        guard let password = passwordAuto else { return }
         
-        LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
+        LoginService.shared.login(id: id, pwd: password) { networkResult in
             switch networkResult {
                 
             case .success(let token):
@@ -59,6 +61,7 @@ class SignInViewController: UIViewController {
             case .networkFail: print("networkFail")
             }
         }
+        
     }
     
     @IBAction func signinBtnPressed(_ sender: Any) {
