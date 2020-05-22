@@ -32,15 +32,65 @@ class SignInViewController: UIViewController {
         idTextField.layer.cornerRadius = 22
         passwordTextField.layer.cornerRadius = 22
         signInButton.layer.cornerRadius = 24
+        guard let inputID = idTextField.text else { return }
+        guard let inputPWD = passwordTextField.text else { return }
         
-        
+        LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
+            switch networkResult {
+                
+            case .success(let token):
+                guard let token = token as? String else { return }
+                UserDefaults.standard.set(token, forKey: "token")
+                guard let tabBarController = self.storyboard?.instantiateViewController(identifier: "TabBarController") as? UITabBarController else {
+                    return
+                }
+                tabBarController.modalPresentationStyle = .fullScreen
+                self.present(tabBarController, animated: true, completion: nil)
+                
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
     }
-
-    @IBAction func signInBtnPressed(_ sender: UIButton) {
-
-        guard let tabBarVC = self.storyboard?.instantiateViewController(identifier: "TabBarController") as? UITabBarController else { return }
-        tabBarVC.modalPresentationStyle = .fullScreen
-        self.present(tabBarVC, animated: true, completion: nil)
+    
+    @IBAction func signinBtnPressed(_ sender: Any) {
+        guard let inputID = idTextField.text else { return }
+        guard let inputPWD = passwordTextField.text else { return }
+        
+        LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
+            switch networkResult {
+                
+            case .success(let token):
+                guard let token = token as? String else { return }
+                UserDefaults.standard.set(token, forKey: "token")
+                guard let tabBarController = self.storyboard?.instantiateViewController(identifier: "TabBarController") as? UITabBarController else {
+                    return
+                }
+                tabBarController.modalPresentationStyle = .fullScreen
+                self.present(tabBarController, animated: true, completion: nil)
+                
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        
+        
     }
     
 }

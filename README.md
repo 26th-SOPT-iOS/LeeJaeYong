@@ -474,4 +474,194 @@ present(actionSheet, animated: true) {
 
 - set버튼을 누르면 autolayout이 이상하다는 오류가 경고창이 뜨는데 이게 무엇인지 알아봐야겠다.
 
+  ㄴ xcode 버그라고 한다. 이거 보시구 헤매지 마시길.................
+
 <img src="https://user-images.githubusercontent.com/56102421/82013197-a8e3c300-96b4-11ea-8791-b47bb8ddc804.gif" width= "50%"> 
+
+
+
+## 4주차 세미나
+
+⭐️ **API 통신** ⭐️ 코드이해 중요!!!
+
+### 쓰이는 문법 공부
+
+**Singleton Pattern**: 특정 용도로 객체를 하나 생성하여 공용으로 사용하고 싶을 때 사용하는 방법.
+
+즉 이 말은 여러 객체에서 접근 가능하도록 데이터를 생성하지만 새 데이터를 계속 생성하지 않고 이전에 생성한 하나의 객체를 공용으로 사용한다는 말이다. *단 하나의 인스컨스* 로만 클래스를 관리하고 사용할 수 있다. 그러나 생성되고 나면 프로그램이 종료되기까지 항상 메모리에 올라가 있으므로 적절하게 사용해야 한다.
+
+현재 LoginService 클래스에서는 shared 인스턴스를 LoginService클래스로 클래스내에 생성하여 이를 공용으로 사용한다.
+
+
+
+**Escaping Closure**: 클로저를 외부에서도 쓸 수 있도록 탈출시켜주는 문법
+
+탈출이라는 것은 해당 함수의 실행을 중간에 끊는다는 것이 아니라 클로저를 외부로 보내게 해준다는 의미이다. 원래는 함수 내의 변수들을 외부로 보낼 수 없다는 것은 누구나 알 것이다. 외부로 보내기 위해서는 전역변수를 선언후, 그 전역변수를 함수 내에서 사용하는 방법이 있다. 그렇다면 escaping closure는 굳이 왜 필요한가??!! 바로 A함수가 마무리된 상태에서만 B함수가 실행되도록 함수를 작성할 수 있다는 점에서 유용하다!! 즉, Escaping closure를 활용하여 함수 사이에 실행 순서를 정할 수 있다. 예를들어 통신같이 순서대로 작동하는 작업이 있을 때, 비동기로 작동하는 함수를 escaping을 사용하여 동기적으로 처리가 가능하게 해준다. 
+
+현재 사용하는 Alamofire 라이브러리를 살펴보면서 적용시켜보자.
+
+````swift
+private func makeParameter(_ id: String, _ pwd: String) -> Parameters {
+        return ["id": id, "password": pwd]
+}
+    
+    func login(id: String, pwd: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let header: HTTPHeaders = ["Content-Type": "application/json"]
+        
+        let dataRequest = Alamofire.request(APIConstants.signinURL, method: .post, parameters: makeParameter(id, pwd), encoding: JSONEncoding.default, headers: header)
+        
+        dataRequest.responseData { dataResponse in
+            switch dataResponse.result {
+            case .success:
+                guard let statusCode = dataResponse.response?.statusCode else { return }
+                guard let value = dataResponse.result.value else { return }
+                let networkResult = self.judge(by: statusCode, value)
+                completion(networkResult)
+            case .failure: completion(.networkFail)
+        }
+    }
+}
+````
+
+> judge 함수는 아래에 적어두었다.
+>
+> responseData() 메소드 외에 responseJSON(), responseString() 등이 있지만 responseData 메소드를 사용하여 Data로 serialize(직렬화)해준다. 그냥 받아온 010101로 이루어진 정보를 Data 타입으로 바꿔준다고 생각했다. 
+>
+> 위 코드의 success, failure, response, result, value 모두 Alamofire 라이브러리내의 인스턴스이고 
+>
+> result는 통신 성공의 .success, .failure 두가지 케이스가 있고 isSuccess, isFailure, value, error 등의 인스턴스를 가지고 있다.
+>
+> .response는 HTTPURLResponse 클래스 타입이고 이 클래스 내에는 statusCode, allHeaderFields 두가지 인스턴스를 가지고 있으며, value, localizedString 두가지 메소드를 가지고 있다.  
+>
+> ✅ control -> Jump to Definition 으로 분석할 수 있다!! 
+
+login 함수의 클로저를 escaping 처리를 해주었다. 이는 통신이 끝나지도 않았는데 nil값을 반환하면 안되기 때문에 동기 처리해주기 위해서이다. Alamofire.request(URLRequst) 메소드를 통해 request를 보내주고 response를 dataRequest에 받아온다. 하지만 받아 왔는지 어떻게 아느냐..?! 그건 다음 메소드에서 알 수 있다. dataRequest를 responseData() 메소드를 이용하여 분석한다. responseData() 메소드는 아래와 같이 이루어져 있다.
+
+```swift
+@discardableResult
+    public func responseData(
+        queue: DispatchQueue? = nil,
+        completionHandler: @escaping (DataResponse<Data>) -> Void)
+        -> Self
+    {
+        return response(
+            queue: queue,
+            responseSerializer: DataRequest.dataResponseSerializer(),
+            completionHandler: completionHandler
+        )
+    }
+```
+
+> @discardableResult: 결과를 사용하지 않고, 값을 리턴하는 함수 또는 메소드가 호출될 때 컴파일러 경고를 표시하지 않으려면 이 속성을 함수 또는 메소드 선언에 적용!
+>
+> - Result of call to 'function' is unused 라는 경고창이 뜬다. 이걸 없애주려면 위 특성을 적용시키자
+>
+> 참고 👉 https://zeddios.tistory.com/258
+
+이 responseData() 메소드에는 기본으로 값이 주어지는 queue와 responseSerializer뿐만 아니라 아무것도 적혀 있지 않는 Escaping Closure 형태로 작성된 completionHandler가 있다. 이 completionHandler는 responseData() 함수가 완전히 서버로부터 값을 가져 온 상태에서 실행된다! 그 부분이 우리가 코드를 적어준 dataResponse in 다음 부분이다. 우리는 이 completionHandler에 코드를 작성한 것이다.
+
+여기까지가 우리가 적용시킨 Escaping Closure이다. 하지만 조금만 더 알아보자.
+
+- Closure를 외부에 저장하기
+
+처음에 이게 말이 안된다고 생각헀다. 하지만 밑에 이런식으로 completionHandlers라는 함수배열에 저장이 가능했다..!!! escaping을 저렇게도 사용할 수 있다.
+
+```swift
+/ 함수 외부에 클로저를 저장하는 예시
+// 클로저를 저장하는 배열
+var completionHandlers: [() -> Void] = []
+
+func withEscaping(completion: @escaping () -> Void) {
+    // 함수 밖에 있는 completionHandlers 배열에 해당 클로저를 저장
+    completionHandlers.append(completion)
+}
+
+func withoutEscaping(completion: () -> Void) {
+    completion()
+}
+
+class MyClass {
+    var x = 10
+    func callFunc() {
+        withEscaping { self.x = 100 }
+        withoutEscaping { x = 200 }
+    }
+}
+let mc = MyClass()
+mc.callFunc()
+print(mc.x)
+completionHandlers.first?()
+print(mc.x)
+
+// 결과
+// 200
+// 100
+```
+
+- Escaping Closure형태가 두번 쓰여야하는 상황! 즉, 비동기처리를 두번 해주어야 하는 상황
+
+위의 상황은 생각보다 많다. 예를 들어, 서버에서 json정보를 가져와 앱 화면을 보여줘야 하는 상황에는 앱 화면에서 업데이트를  요청했을 때 json정보를 서버에서 받아와야 한다. 이것들이 모두 비동기로 이루어져야 한다! 이럴 때는 두개의 Escaping Closure를 함께 사용해야 한다. 이 때 적용해야 하는 함수는 `DispatchQueue.main.async{}`이다.
+
+```swift
+class Server {
+  static var persons: [Person] = []
+
+  static getPerson(completion: @escaping (Bool, [Person]) -> Void) {
+      // 순서 2.
+      Alamofire.request(urlRequest).responseJSON { response in
+          persons.append(데이터)
+          DispatchQueue.main.async {
+              // 순서 3.
+              completion(true, persons)
+          }
+      }
+  }
+}
+// Usage, ex) ViewController.swift
+// 순서 1.
+Server.getPerson { (isSuccess, persons) in
+  // 순서 4.
+  if isSuccess {
+      // update UI
+  }
+}
+```
+
+위 소스코드와 내용은 모두 여기를 참고했다. 잘 정리되어 있네요.  👉 https://hcn1519.github.io/articles/2017-09/swift_escaping_closure
+
+----
+
+### 코드 분석
+
+LoginService내의 다른 함수: judge와 isUser
+
+```swift
+private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+        switch statusCode {
+        case 200: return isUser(by: data)
+        case 400: return .pathErr
+        case 500: return .serverErr
+        default: return .networkFail
+        }
+}
+    
+    private func isUser(by data: Data) -> NetworkResult<Any> {
+        let decoder = JSONDecoder()
+        guard let decodedData = try? decoder.decode(SigninData.self, from: data) else { return .pathErr }
+        guard let tokenData = decodedData.data else { return .requestErr(decodedData.message) }
+        return .success(tokenData.jwt)
+}
+```
+
+> judge함수를 통해 네트워크통신의 결과를 알려준다. 이 때 받아오는 statusCode를 이용하여 어떤 상태인지 분기처리 해준 후 data를 받아오는데 성공했다면 isUser함수를 이용하여 data를 뽑아낸다. 
+>
+> NetworkResult: 네트워크통신결과를 우리가 직접 정리해놓은 struct
+>
+> Data: A byte buffer in memory 
+>
+> - 왜 Data 구조체를 사용하나? Alamofire의 responseData 메소드를 이용해주었기 때문이다. responseJSON, responeString 등이 있다.
+>
+> JSONDecoder()는 나중에 분석하장 그냥 저렇게 쓰는 걸로 알아두자!
+
+✅ 회원가입 API 통신해보기
+

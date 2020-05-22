@@ -57,7 +57,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="signInBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dRg-x1-RKn"/>
+                                    <action selector="signinBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YDJ-S2-GJR"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soptLogo" translatesAutoresizingMaskIntoConstraints="NO" id="AWh-54-oDs">
@@ -167,7 +167,7 @@
                     <connections>
                         <outlet property="idTextField" destination="Gs2-34-Gp3" id="94a-b9-vNt"/>
                         <outlet property="passwordTextField" destination="jy7-SL-dpf" id="KC3-cq-jEa"/>
-                        <outlet property="signInButton" destination="3Vv-Rg-IGh" id="cd3-mT-XIp"/>
+                        <outlet property="signInButton" destination="3Vv-Rg-IGh" id="WmV-PM-3gy"/>
                         <outlet property="signUpButton" destination="R0B-I0-L8P" id="Ai1-YD-XIG"/>
                     </connections>
                 </viewController>
@@ -178,7 +178,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="rKj-Cg-g32">
             <objects>
-                <viewController id="jiW-uo-xJ9" customClass="SignUpViewController" customModule="iOS_secondAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="jiW-uo-xJ9" customClass="SignUpViewController" customModule="iOS_secondAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3WV-cc-ypI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -809,7 +809,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Ph4-YW-1R9">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="lxv-ID-3li" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="lxv-ID-3li" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kbl-pb-daf">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

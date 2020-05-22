@@ -31,13 +31,7 @@ class SignUpViewController: UIViewController {
         signUpButton.layer.cornerRadius = 24
     }
     
-    
-    @IBAction func backBtnPressed(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
-    }
     @IBAction func signUpBtnPressed(_ sender: UIButton) {
-//        guard let completeVC = self.storyboard?.instantiateViewController(identifier: "CompleteViewController") as? CompleteViewController else { return }
-//        
         guard let tabBarVC = self.storyboard?.instantiateViewController(identifier: "TabBarController") as? UITabBarController else { return }
         tabBarVC.modalPresentationStyle = .fullScreen
         self.present(tabBarVC, animated: true) {
