@@ -196,7 +196,7 @@
                                 <color key="textColor" red="0.027450980392156862" green="0.23137254901960785" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="이름" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C31-NY-De4" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="아이디" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C31-NY-De4" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
                                 <rect key="frame" x="57.5" y="268" width="299" height="44"/>
                                 <color key="backgroundColor" red="0.92941802740000001" green="0.92940050360000004" blue="0.92941236500000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -211,7 +211,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GFM-WK-gAm" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GFM-WK-gAm" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
                                 <rect key="frame" x="57" y="328" width="300" height="44"/>
                                 <color key="backgroundColor" red="0.92941802740000001" green="0.92940050360000004" blue="0.92941236500000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -226,7 +226,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R9J-A4-Iwm" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R9J-A4-Iwm" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
                                 <rect key="frame" x="57" y="386" width="300" height="44"/>
                                 <color key="backgroundColor" red="0.92941802740000001" green="0.92940050360000004" blue="0.92941236500000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -241,8 +241,38 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pYK-2y-pg8" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
+                                <rect key="frame" x="57" y="444" width="300" height="44"/>
+                                <color key="backgroundColor" red="0.92941802740000001" green="0.92940050360000004" blue="0.92941236500000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Xjk-4v-XuX"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="w6t-QJ-HKr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="19"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="전화번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NJa-M0-VaV" customClass="FormTextField" customModule="iOS_secondAssignment" customModuleProvider="target">
+                                <rect key="frame" x="57" y="502" width="300" height="44"/>
+                                <color key="backgroundColor" red="0.92941802740000001" green="0.92940050360000004" blue="0.92941236500000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="XEU-bd-Mcw"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="lle-Jc-eFR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="19"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqr-wT-ROL">
-                                <rect key="frame" x="57" y="475" width="300" height="48"/>
+                                <rect key="frame" x="57" y="587" width="300" height="48"/>
                                 <color key="backgroundColor" red="0.027450980390000001" green="0.23137254900000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Nv7-S4-EH4"/>
@@ -261,24 +291,30 @@
                         <constraints>
                             <constraint firstItem="GFM-WK-gAm" firstAttribute="centerX" secondItem="3WV-cc-ypI" secondAttribute="centerX" id="1cl-G4-iU6"/>
                             <constraint firstItem="C31-NY-De4" firstAttribute="top" secondItem="HzV-0R-Ign" secondAttribute="bottom" constant="42" id="5fT-fI-ONA"/>
-                            <constraint firstItem="Vqr-wT-ROL" firstAttribute="centerX" secondItem="3WV-cc-ypI" secondAttribute="centerX" id="CAg-c7-4NB"/>
+                            <constraint firstItem="Vqr-wT-ROL" firstAttribute="top" secondItem="NJa-M0-VaV" secondAttribute="bottom" constant="41" id="9K8-7J-51l"/>
+                            <constraint firstItem="Vqr-wT-ROL" firstAttribute="centerX" secondItem="3WV-cc-ypI" secondAttribute="centerX" id="CtZ-Cq-87c"/>
                             <constraint firstItem="GFM-WK-gAm" firstAttribute="top" secondItem="C31-NY-De4" secondAttribute="bottom" constant="16" id="HA8-gE-sqD"/>
+                            <constraint firstItem="pYK-2y-pg8" firstAttribute="top" secondItem="R9J-A4-Iwm" secondAttribute="bottom" constant="14" id="Hzm-Iu-TWz"/>
+                            <constraint firstItem="NJa-M0-VaV" firstAttribute="top" secondItem="pYK-2y-pg8" secondAttribute="bottom" constant="14" id="Md9-rq-78P"/>
                             <constraint firstItem="C31-NY-De4" firstAttribute="centerX" secondItem="3WV-cc-ypI" secondAttribute="centerX" id="edM-zo-LB0"/>
                             <constraint firstItem="HzV-0R-Ign" firstAttribute="top" secondItem="uR1-c9-5kV" secondAttribute="bottom" constant="10" id="fPg-Ul-N5f"/>
                             <constraint firstItem="uR1-c9-5kV" firstAttribute="top" secondItem="r2D-sO-PwD" secondAttribute="top" constant="55" id="kPv-JL-AsF"/>
                             <constraint firstItem="uR1-c9-5kV" firstAttribute="centerX" secondItem="3WV-cc-ypI" secondAttribute="centerX" id="kQc-m1-hRR"/>
                             <constraint firstItem="R9J-A4-Iwm" firstAttribute="centerX" secondItem="3WV-cc-ypI" secondAttribute="centerX" id="kZR-6d-S1p"/>
-                            <constraint firstItem="Vqr-wT-ROL" firstAttribute="top" secondItem="R9J-A4-Iwm" secondAttribute="bottom" constant="45" id="m6C-16-LL9"/>
                             <constraint firstItem="HzV-0R-Ign" firstAttribute="centerX" secondItem="3WV-cc-ypI" secondAttribute="centerX" id="r4r-Zj-644"/>
+                            <constraint firstItem="pYK-2y-pg8" firstAttribute="centerX" secondItem="3WV-cc-ypI" secondAttribute="centerX" id="sSk-Ry-xgS"/>
                             <constraint firstItem="R9J-A4-Iwm" firstAttribute="top" secondItem="GFM-WK-gAm" secondAttribute="bottom" constant="14" id="voo-3n-vbU"/>
+                            <constraint firstItem="NJa-M0-VaV" firstAttribute="centerX" secondItem="3WV-cc-ypI" secondAttribute="centerX" id="x3B-qB-CUb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r2D-sO-PwD"/>
                     </view>
                     <navigationItem key="navigationItem" id="GTr-6v-n4b"/>
                     <connections>
-                        <outlet property="idTextField" destination="GFM-WK-gAm" id="9qJ-Oh-eFW"/>
-                        <outlet property="nameTextField" destination="C31-NY-De4" id="2gb-ye-sp8"/>
-                        <outlet property="passwordTextField" destination="R9J-A4-Iwm" id="1oJ-hQ-EK2"/>
+                        <outlet property="emailTextField" destination="pYK-2y-pg8" id="GrY-7m-kF1"/>
+                        <outlet property="idTextField" destination="C31-NY-De4" id="X2b-u9-ZI2"/>
+                        <outlet property="nameTextField" destination="R9J-A4-Iwm" id="QPB-Ui-8AK"/>
+                        <outlet property="passwordTextField" destination="GFM-WK-gAm" id="isS-Mt-FMf"/>
+                        <outlet property="phoneTextField" destination="NJa-M0-VaV" id="10n-Gq-Yjp"/>
                         <outlet property="signUpButton" destination="Vqr-wT-ROL" id="hwv-TM-QZ4"/>
                     </connections>
                 </viewController>

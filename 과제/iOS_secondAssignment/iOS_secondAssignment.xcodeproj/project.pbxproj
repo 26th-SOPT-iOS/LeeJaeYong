@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,8 @@
 		D49A62C22477A0F900FB24E7 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A62C12477A0F900FB24E7 /* NetworkResult.swift */; };
 		D49A62C42477A11200FB24E7 /* SigninData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A62C32477A11200FB24E7 /* SigninData.swift */; };
 		D49A62C62477A12B00FB24E7 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A62C52477A12B00FB24E7 /* LoginService.swift */; };
+		D49A62C82477CB6900FB24E7 /* SignupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A62C72477CB6900FB24E7 /* SignupData.swift */; };
+		D49A62CA2477CB7400FB24E7 /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A62C92477CB7400FB24E7 /* SignupService.swift */; };
 		D4A9C406246D87C000638B70 /* PersonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9C405246D87C000638B70 /* PersonInfo.swift */; };
 		D4A9C408246D87D800638B70 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9C407246D87D800638B70 /* FriendTableViewCell.swift */; };
 		D4CA27F32457DC630032F2AA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA27F22457DC630032F2AA /* SignUpViewController.swift */; };
@@ -43,6 +45,8 @@
 		D49A62C12477A0F900FB24E7 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		D49A62C32477A11200FB24E7 /* SigninData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninData.swift; sourceTree = "<group>"; };
 		D49A62C52477A12B00FB24E7 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		D49A62C72477CB6900FB24E7 /* SignupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupData.swift; sourceTree = "<group>"; };
+		D49A62C92477CB7400FB24E7 /* SignupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
 		D4A9C405246D87C000638B70 /* PersonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfo.swift; sourceTree = "<group>"; };
 		D4A9C407246D87D800638B70 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		D4CA27F22457DC630032F2AA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +72,6 @@
 				CD8EB219E6C0068D48D076FB /* Pods-iOS_secondAssignment.debug.xcconfig */,
 				4E0C625B3D6D3950F134CA16 /* Pods-iOS_secondAssignment.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -127,6 +130,8 @@
 				D49A62C12477A0F900FB24E7 /* NetworkResult.swift */,
 				D49A62C32477A11200FB24E7 /* SigninData.swift */,
 				D49A62C52477A12B00FB24E7 /* LoginService.swift */,
+				D49A62C72477CB6900FB24E7 /* SignupData.swift */,
+				D49A62C92477CB7400FB24E7 /* SignupService.swift */,
 				D48AE9F72476C6B60079A535 /* Designs */,
 				D48AE9F02476C5AC0079A535 /* Storyboards */,
 				D442E2942456FF930089082C /* Assets.xcassets */,
@@ -294,7 +299,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4A9C408246D87D800638B70 /* FriendTableViewCell.swift in Sources */,
+				D49A62C82477CB6900FB24E7 /* SignupData.swift in Sources */,
 				D49A62C62477A12B00FB24E7 /* LoginService.swift in Sources */,
+				D49A62CA2477CB7400FB24E7 /* SignupService.swift in Sources */,
 				D442E2902456FF930089082C /* SignInViewController.swift in Sources */,
 				D49A62C22477A0F900FB24E7 /* NetworkResult.swift in Sources */,
 				D4E9242D24581C250090A7B5 /* FormTextField.swift in Sources */,

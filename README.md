@@ -663,5 +663,55 @@ private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
 >
 > JSONDecoder()는 나중에 분석하장 그냥 저렇게 쓰는 걸로 알아두자!
 
+SigninData내 코드
+
+```swift
+struct SigninData: Codable {
+    var status: Int
+    var success: Bool
+    var message: String
+    var data: TokenData?
+    
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case success = "success"
+        case message = "message"
+        case data = "data"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        status = (try? values.decode(Int.self, forKey: .status)) ?? -1
+        success = (try? values.decode(Bool.self, forKey: .success)) ?? false
+        message = (try? values.decode(String.self, forKey: .message)) ?? ""
+        data = (try? values.decode(TokenData.self, forKey: .data)) ?? nil
+    }
+}
+
+struct TokenData: Codable {
+    var jwt: String
+}
+
+```
+
+> 과제먼저하자.
+
 ✅ 회원가입 API 통신해보기
 
+위 로그인과정과 같지만 한가지 고쳐주어야 하는 것
+
+회원가입에서는 토큰을 주지 않는다. 
+
+```swift
+private func isSignup(by data: Data) -> NetworkResult<Any> {
+        let decoder = JSONDecoder()
+        guard let decodedData = try? decoder.decode(SigninData.self, from: data) else { return .pathErr }      
+        if decodedData.success {
+            return .success(decodedData.message)
+        } else {
+            return .requestErr(decodedData.message)
+        }
+}
+```
+
+> 성공했을 때 회원가입 성공되었다는 메세지를 로그에 띄워 제대로 되었는지 확인하는 용도로 씀

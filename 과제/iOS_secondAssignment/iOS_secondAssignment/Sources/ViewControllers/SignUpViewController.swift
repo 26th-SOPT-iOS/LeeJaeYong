@@ -10,9 +10,11 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    @IBOutlet weak var nameTextField: FormTextField!
     @IBOutlet weak var idTextField: FormTextField!
     @IBOutlet weak var passwordTextField: FormTextField!
+    @IBOutlet weak var nameTextField: FormTextField!
+    @IBOutlet weak var emailTextField: FormTextField!
+    @IBOutlet weak var phoneTextField: FormTextField!
     @IBOutlet weak var signUpButton: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,11 +34,33 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpBtnPressed(_ sender: UIButton) {
-        guard let tabBarVC = self.storyboard?.instantiateViewController(identifier: "TabBarController") as? UITabBarController else { return }
-        tabBarVC.modalPresentationStyle = .fullScreen
-        self.present(tabBarVC, animated: true) {
-            if let navController = self.navigationController {
-                navController.popViewController(animated: true)
+        guard let inputID = idTextField.text else { return }
+        guard let inputPWD = passwordTextField.text else { return }
+        guard let inputNAME = nameTextField.text else { return }
+        guard let inputEMAIL = emailTextField.text  else { return }
+        guard let inputPHONE = phoneTextField.text else { return }
+        
+        SignupService.shared.signup(id: inputID, pwd: inputPWD, name: inputNAME, email: inputEMAIL, phone: inputPHONE) { networkResult in
+            switch networkResult {
+                
+            case .success(let message):
+                print(message)
+                guard let tabBarController = self.storyboard?.instantiateViewController(identifier: "TabBarController") as? UITabBarController else {
+                    return
+                }
+                tabBarController.modalPresentationStyle = .fullScreen
+                self.present(tabBarController, animated: true, completion: nil)
+                
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
             }
         }
     }
