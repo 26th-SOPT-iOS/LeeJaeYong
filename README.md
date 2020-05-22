@@ -781,3 +781,10 @@ LoginService 통신 코드를 viewDidLoad 함수 내에 작성(그대로 복붙�
 
    로그인하기 버튼이 눌렸을 때 로그인 통신이 성공했다면 위 함수 불러오기
 
+🤯 헤매고 궁금한 점
+
+- Alamofire을 다운받았는데 계속 경로를 못잡아서 에러메세지가 뜨면 다시 `pod install` 한 경로로 들어가 `pod update`를 해준다.
+
+- 로그인 버튼 눌렀는데 이상한 로그가 찍힌다...
+
+<img src="https://user-images.githubusercontent.com/56102421/82663684-1e2e3580-9c6b-11ea-82d7-99a5b9353d70.gif" > 
