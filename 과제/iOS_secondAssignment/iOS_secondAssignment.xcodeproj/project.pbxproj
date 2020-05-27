@@ -42,7 +42,7 @@
 		D442E2992456FF930089082C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44E9492246A723800090556 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		D49A62BF2477A0D700FB24E7 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIConstants.swift; path = iOS_secondAssignment/Resources/APIs/APIConstants.swift; sourceTree = SOURCE_ROOT; };
-		D49A62C12477A0F900FB24E7 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkResult.swift; path = ../NetworkResult.swift; sourceTree = "<group>"; };
+		D49A62C12477A0F900FB24E7 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		D49A62C32477A11200FB24E7 /* SigninData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninData.swift; sourceTree = "<group>"; };
 		D49A62C52477A12B00FB24E7 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		D49A62C72477CB6900FB24E7 /* SignupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupData.swift; sourceTree = "<group>"; };
@@ -73,25 +73,6 @@
 				4E0C625B3D6D3950F134CA16 /* Pods-iOS_secondAssignment.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		D43CBF3C247DFBA6007E34FE /* test */ = {
-			isa = PBXGroup;
-			children = (
-				D49A62C12477A0F900FB24E7 /* NetworkResult.swift */,
-				D49A62C32477A11200FB24E7 /* SigninData.swift */,
-			);
-			path = test;
-			sourceTree = "<group>";
-		};
-		D43CBF3D247DFC13007E34FE /* test2 */ = {
-			isa = PBXGroup;
-			children = (
-				D49A62C52477A12B00FB24E7 /* LoginService.swift */,
-				D49A62C72477CB6900FB24E7 /* SignupData.swift */,
-				D49A62C92477CB7400FB24E7 /* SignupService.swift */,
-			);
-			path = test2;
 			sourceTree = "<group>";
 		};
 		D442E27F2456FF930089082C = {
@@ -193,8 +174,11 @@
 			isa = PBXGroup;
 			children = (
 				D49A62BF2477A0D700FB24E7 /* APIConstants.swift */,
-				D43CBF3C247DFBA6007E34FE /* test */,
-				D43CBF3D247DFC13007E34FE /* test2 */,
+				D49A62C12477A0F900FB24E7 /* NetworkResult.swift */,
+				D49A62C32477A11200FB24E7 /* SigninData.swift */,
+				D49A62C52477A12B00FB24E7 /* LoginService.swift */,
+				D49A62C72477CB6900FB24E7 /* SignupData.swift */,
+				D49A62C92477CB7400FB24E7 /* SignupService.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
