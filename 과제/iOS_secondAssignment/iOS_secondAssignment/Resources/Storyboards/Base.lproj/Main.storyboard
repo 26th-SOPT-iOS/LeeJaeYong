@@ -154,6 +154,9 @@
                                     <constraint firstAttribute="height" constant="17" id="bIH-VY-X7V"/>
                                     <constraint firstAttribute="width" constant="17" id="ghl-Gr-DUB"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmE-34-rbI">
                                 <rect key="frame" x="85" y="481" width="56.5" height="17"/>
