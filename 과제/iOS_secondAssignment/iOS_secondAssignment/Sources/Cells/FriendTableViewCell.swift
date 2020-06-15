@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol ButtonDelegate {
+    func onClickCellButton(in index: Int)
+}
+
 class FriendTableViewCell: UITableViewCell {
     static let identifier: String = "FriendTableViewCell"
+    
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,6 +23,10 @@ class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var widthConstraintOfImage: NSLayoutConstraint!
     @IBOutlet weak var outStackView: UIStackView!
     @IBOutlet weak var topConstraintOfOutStackView: NSLayoutConstraint!
+    
+    var delegate: ButtonDelegate?
+    var indexPath: IndexPath?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,4 +44,7 @@ class FriendTableViewCell: UITableViewCell {
         introduceLabel.text = person.introduce
     }
     
+    @IBAction func setProfile(_ sender: Any) {
+        delegate?.onClickCellButton(in: indexPath!.row)
+    }
 }

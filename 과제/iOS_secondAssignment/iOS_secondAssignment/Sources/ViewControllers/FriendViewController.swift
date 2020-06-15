@@ -10,19 +10,21 @@ import UIKit
 
 class FriendViewController: UIViewController {
     
+    private var pickerController = UIImagePickerController()
     @IBOutlet weak var friendTableView: UITableView!
     
     var friendInfos: [PersonInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerController.delegate = self
         friendTableView.delegate = self
         friendTableView.dataSource = self
         setFriendInformations()
-//        for family in UIFont.familyNames.sorted() {
-//            let names = UIFont.fontNames(forFamilyName: family)
-//            print("Family: \(family) Font names: \(names)")
-//        }
+        //        for family in UIFont.familyNames.sorted() {
+        //            let names = UIFont.fontNames(forFamilyName: family)
+        //            print("Family: \(family) Font names: \(names)")
+        //        }
     }
     
     private func setFriendInformations() {
@@ -140,11 +142,13 @@ extension FriendViewController: UITableViewDelegate, UITableViewDataSource {
         guard let friendCell = friendTableView.dequeueReusableCell(withIdentifier: FriendTableViewCell.identifier, for: indexPath) as? FriendTableViewCell else { return UITableViewCell() }
         if indexPath.row == 0 && indexPath.section == 0 {
             
+            friendCell.indexPath = indexPath
+            friendCell.delegate = self
             friendCell.heightConstraintOfImage.constant = 60
             friendCell.widthConstraintOfImage.constant = 60
             friendCell.profileImage.contentMode = .scaleAspectFill
             friendCell.nameLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
-            friendCell.outStackView.spacing = 13
+            friendCell.outStackView.spacing = 15
             friendCell.topConstraintOfOutStackView.constant = 15
             friendCell.setFriendInfo(person: friendInfos[indexPath.row])
             
@@ -185,3 +189,62 @@ extension FriendViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+//MARK: - ButtonDelegate
+extension FriendViewController: ButtonDelegate {
+    func onClickCellButton(in index: Int) {
+        let alertController = UIAlertController(title: "사진 선택", message: "가져올 곳을 선택하세요", preferredStyle: .actionSheet)
+        let galleryAction = UIAlertAction(title: "사진앨범", style: .default) {
+            action in
+            self.openLibrary()
+        }
+        let photoAction = UIAlertAction(title: "카메라", style: .default) { action in
+            self.openCamera()
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alertController.addAction(galleryAction)
+        alertController.addAction(photoAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension FriendViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func openLibrary() {
+        pickerController.sourceType = .photoLibrary
+        self.present(pickerController, animated: true, completion: nil)
+    }
+    func openCamera() {
+        pickerController.sourceType = .camera
+        self.present(pickerController, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
+        [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let url =
+            info[UIImagePickerController.InfoKey.imageURL] as? URL {
+            
+            guard let token = UserDefaults.standard.object(forKey: "token") as? String else { return }
+            UploadService.shared.uploadImage(token, image, url.lastPathComponent) { networkResult in
+                switch networkResult {
+                case .success(let profileData):
+                    guard let profileData = profileData as? [UserProfile] else { return }
+                    print(profileData[0].profile)
+                case .requestErr(let failMessage):
+                    guard let message = failMessage as? String else { return }
+                    print(message)
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+            guard let profileCell = friendTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FriendTableViewCell else { return }
+            
+            profileCell.profileImage.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
+}
+

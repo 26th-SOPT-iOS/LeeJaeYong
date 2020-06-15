@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xit-hG-ye5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xit-hG-ye5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -172,7 +172,6 @@
                             <constraint firstItem="3Vv-Rg-IGh" firstAttribute="top" secondItem="wUN-79-NBf" secondAttribute="bottom" constant="11" id="Dni-MT-oRv"/>
                             <constraint firstItem="AWh-54-oDs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="Fg0-Jw-1P0"/>
                             <constraint firstItem="wUN-79-NBf" firstAttribute="top" secondItem="jy7-SL-dpf" secondAttribute="bottom" constant="11" id="HYU-Wn-UGp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rmE-34-rbI" secondAttribute="trailing" constant="272.5" id="IIo-PL-LKT"/>
                             <constraint firstItem="Gs2-34-Gp3" firstAttribute="top" secondItem="AWh-54-oDs" secondAttribute="bottom" constant="58" id="Okm-vu-mM4"/>
                             <constraint firstItem="jy7-SL-dpf" firstAttribute="top" secondItem="Gs2-34-Gp3" secondAttribute="bottom" constant="18" id="R6j-H9-WFL"/>
                             <constraint firstItem="Gs2-34-Gp3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S9O-PT-feT"/>
@@ -780,13 +779,37 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="AJR-jc-gGx">
                                                     <rect key="frame" x="16" y="6" width="371" height="50"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile1Img" translatesAutoresizingMaskIntoConstraints="NO" id="Q0I-9V-TRk">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrJ-lY-ZXW">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile1Img" translatesAutoresizingMaskIntoConstraints="NO" id="Q0I-9V-TRk">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="50" id="hub-bd-3d7"/>
+                                                                        <constraint firstAttribute="height" constant="50" id="kZy-7A-4nU"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCT-81-QSh">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="ha7-EE-mAI"/>
+                                                                        <constraint firstAttribute="width" constant="50" id="z6a-LL-Q2Q"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <action selector="setProfile:" destination="lL1-FV-aIg" eventType="touchUpInside" id="3dx-0S-Iae"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="1GZ-lu-UxR"/>
-                                                                <constraint firstAttribute="width" constant="50" id="EIJ-wh-vAD"/>
+                                                                <constraint firstAttribute="height" constant="50" id="WKD-yJ-Tll"/>
+                                                                <constraint firstItem="Q0I-9V-TRk" firstAttribute="leading" secondItem="TrJ-lY-ZXW" secondAttribute="leading" id="Wm0-wV-J0j"/>
+                                                                <constraint firstItem="VCT-81-QSh" firstAttribute="leading" secondItem="TrJ-lY-ZXW" secondAttribute="leading" id="eao-mF-uRM"/>
+                                                                <constraint firstItem="Q0I-9V-TRk" firstAttribute="top" secondItem="TrJ-lY-ZXW" secondAttribute="top" id="fCL-jx-Weg"/>
+                                                                <constraint firstItem="VCT-81-QSh" firstAttribute="top" secondItem="TrJ-lY-ZXW" secondAttribute="top" id="fwq-kl-Bvs"/>
+                                                                <constraint firstAttribute="width" constant="50" id="uum-jn-Kdc"/>
                                                             </constraints>
-                                                        </imageView>
+                                                        </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="7Ir-hb-8GD">
                                                             <rect key="frame" x="72" y="0.0" width="299" height="50"/>
                                                             <subviews>
@@ -814,13 +837,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="heightConstraintOfImage" destination="1GZ-lu-UxR" id="GB3-D5-1dJ"/>
+                                            <outlet property="heightConstraintOfImage" destination="kZy-7A-4nU" id="1CP-VX-ie3"/>
                                             <outlet property="introduceLabel" destination="4bI-CF-Reg" id="Vif-QG-akf"/>
                                             <outlet property="nameLabel" destination="eVG-D8-a9c" id="DD1-G6-lxY"/>
                                             <outlet property="outStackView" destination="AJR-jc-gGx" id="F2C-Jk-6Ij"/>
                                             <outlet property="profileImage" destination="Q0I-9V-TRk" id="uqg-L8-Dia"/>
                                             <outlet property="topConstraintOfOutStackView" destination="A3f-En-h4y" id="y3R-Dq-NgC"/>
-                                            <outlet property="widthConstraintOfImage" destination="EIJ-wh-vAD" id="RSt-Q2-yZb"/>
+                                            <outlet property="widthConstraintOfImage" destination="hub-bd-3d7" id="ezo-6S-mUb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
